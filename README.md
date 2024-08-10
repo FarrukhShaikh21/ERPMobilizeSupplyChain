@@ -1,2 +1,1 @@
-# ERPMobilizeSupplyChain
-ERPMobilizeSupplyChain
+# ERPSolutionSupplyChainManagement
