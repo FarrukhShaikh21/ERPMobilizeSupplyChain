@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolscm.erpsolscmview" ClientType="Generic">
+  <pageMap>
+    <page path="/SO_0167.jsf" usageId="erpsolscm_erpsolscmview_SO_0167PageDef"/>
+    <page path="/ERPSolSCMMain.jsf" usageId="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"/>
+    <page path="/SO_0161.jsf" usageId="erpsolscm_erpsolscmview_SO_0161PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeSysModuleSoTransaction"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"/>
+    <page path="/SO_0171.jsf" usageId="erpsolscm_erpsolscmview_SO_0171PageDef"/>
+    <page path="/SCAN_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SCAN_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeRebateDetail"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecutePageDef"/>
+    <page path="/SO_0171_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0171_SEARCHPageDef"/>
+    <page path="/SO_0167_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0167_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@RollbackSCM"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@RollbackBeforeFormSCM"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef1"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@RollbackCloseFormSCM"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef11"/>
+    <page path="/SO_0019.jsf" usageId="erpsolscm_erpsolscmview_SO_0019PageDef"/>
+    <page path="/SO_1124.jsf" usageId="erpsolscm_erpsolscmview_SO_1124PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMReport"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/SO_0167_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSoLinesBySOID"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/SO_0161_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ERPSolBackFromSCMException"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParaSCMReverse"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMMaster"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMReverse"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
+    <page path="/SO_0011.jsf" usageId="erpsolscm_erpsolscmview_SO_0011PageDef"/>
+    <page path="/SO_0011_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0011_SEARCHPageDef"/>
+    <page path="/SO_0127.jsf" usageId="erpsolscm_erpsolscmview_SO_0127PageDef"/>
+    <page path="/SO_0092.jsf" usageId="erpsolscm_erpsolscmview_SO_0092PageDef"/>
+    <page path="/SO_0127_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0127_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeParaReportDetailSCM"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
+    <page path="/SO_0161_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeWithParaSRIMEISO_0161_IMEI"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeSetSCMReportDefaults"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"/>
+    <page path="/SO_0145.jsf" usageId="erpsolscm_erpsolscmview_SO_0145PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@doSetERPSolSCMReportSO_0145"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef1"/>
+    <page path="/SO_0012.jsf" usageId="erpsolscm_erpsolscmview_SO_0012PageDef"/>
+    <page path="/SO_0012_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0012_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeImeiMemo"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111111"/>
+    <page path="/SO_0083.jsf" usageId="erpsolscm_erpsolscmview_SO_0083PageDef"/>
+    <page path="/SO_0175.jsf" usageId="erpsolscm_erpsolscmview_SO_0175PageDef"/>
+    <page path="/SO_0009.jsf" usageId="erpsolscm_erpsolscmview_SO_0009PageDef"/>
+    <page path="/SO_0030.jsf" usageId="erpsolscm_erpsolscmview_SO_0030PageDef"/>
+    <page path="/SO_0072.jsf" usageId="erpsolscm_erpsolscmview_SO_0072PageDef"/>
+    <page path="/SO_0140.jsf" usageId="erpsolscm_erpsolscmview_SO_0140PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@doSetERPSolSCMReportDefault"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef11"/>
+    <page path="/SO_0204.jsf" usageId="erpsolscm_erpsolscmview_SO_0204PageDef"/>
+    <page path="/SO_0204_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0204_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParams"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111111"/>
+    <page path="/SO_0204_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0204_SEARCHPageDef"/>
+    <page path="/ERPSolSCMException.jsf" usageId="erpsolscm_erpsolscmview_ERPSolSCMExceptionPageDef"/>
+    <page path="/SO_0180.jsf" usageId="erpsolscm_erpsolscmview_SO_0180PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSolSCMMainPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0161PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0161PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0171PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0171PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SCAN_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SCAN_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecutePageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecutePageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0171_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0171_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0167_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0167_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef1"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef11"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef11"/>
+    <page id="erpsolscm_erpsolscmview_SO_0019PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0019PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_1124PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_1124PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0161_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolscm_erpsolscmview_SO_0011PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0011PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0011_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0011_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0127PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0127PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0092PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0092PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0127_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0127_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
+    <page id="erpsolscm_erpsolscmview_SO_0161_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0161_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0145PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0145PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef1"/>
+    <page id="erpsolscm_erpsolscmview_SO_0012PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0012PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0012_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0012_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111111"/>
+    <page id="erpsolscm_erpsolscmview_SO_0083PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0083PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0175PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0175PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0009PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0009PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0030PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0030PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0072PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0072PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0140PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0140PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef11"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef11"/>
+    <page id="erpsolscm_erpsolscmview_SO_0204PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0204PageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0204_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0204_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111111"/>
+    <page id="erpsolscm_erpsolscmview_SO_0204_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0204_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSolSCMExceptionPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSolSCMExceptionPageDef"/>
+    <page id="erpsolscm_erpsolscmview_SO_0180PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0180PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolSCMAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

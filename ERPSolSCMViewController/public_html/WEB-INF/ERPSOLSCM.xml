@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLSCMBTF">
+    <default-activity>doERPSolSCMSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name>ERPSolSCMPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>ERPSolSCMException</exception-handler>
+    <view id="SO_0167">
+      <page>/SO_0167.jsf</page>
+    </view>
+    <method-call id="doERPGotoSCMActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="SO_0161">
+      <page>/SO_0161.jsf</page>
+    </view>
+    <view id="ERPSolSCMMain">
+      <page>/ERPSolSCMMain.jsf</page>
+    </view>
+    <task-flow-return id="ERPSOL-RETURN-FROM-SCM">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-SCM</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPSolSCMSessionGlobals">
+      <method>#{pageFlowScope.ERPSolSCMPageFlowBean.doSetERPSolSCMSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSysModuleSoTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0171">
+      <page>/SO_0171.jsf</page>
+    </view>
+    <view id="SCAN_IMEI">
+      <page>/SCAN_IMEI.jsf</page>
+    </view>
+    <method-call id="ExeRebateDetail">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-BACK-FROM-REBATE-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0167_SEARCH">
+      <page>/SO_0167_SEARCH.jsf</page>
+    </view>
+    <view id="SO_0171_SEARCH">
+      <page>/SO_0171_SEARCH.jsf</page>
+    </view>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="RollbackSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackBeforeFormSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackCloseFormSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-SCM</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0019">
+      <page>/SO_0019.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParamsSCMReport">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_1124">
+      <page>/SO_1124.jsf</page>
+    </view>
+    <view id="SO_0167_IMEI">
+      <page>/SO_0167_IMEI.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParamsSoLinesBySOID">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0167-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0161_SEARCH">
+      <page>/SO_0161_SEARCH.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParamsSCMMaster">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ERPSolSCMException">
+      <page>/ERPSolSCMException.jsf</page>
+    </view>
+    <method-call id="ERPSolBackFromSCMException">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParaSCMReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsSCMReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0011">
+      <page>/SO_0011.jsf</page>
+    </view>
+    <view id="SO_0011_SEARCH">
+      <page>/SO_0011_SEARCH.jsf</page>
+    </view>
+    <view id="SO_0127">
+      <page>/SO_0127.jsf</page>
+    </view>
+    <view id="SO_0127_SEARCH">
+      <page>/SO_0127_SEARCH.jsf</page>
+    </view>
+    <method-call id="ExeParaReportDetailSCM">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0161_IMEI">
+      <page>/SO_0161_IMEI.jsf</page>
+    </view>
+    <method-call id="ExeWithParaSRIMEISO_0161_IMEI">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-0161-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSetSCMReportDefaults">
+      <method>#{bindings.doSetERPSolSCMReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-1124</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0145">
+      <page>/SO_0145.jsf</page>
+    </view>
+    <method-call id="doSetERPSolSCMReportSO_0145">
+      <method>#{bindings.doSetERPSolSCMReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-0145</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0012">
+      <page>/SO_0012.jsf</page>
+    </view>
+    <view id="SO_0012_IMEI">
+      <page>/SO_0012_IMEI.jsf</page>
+    </view>
+    <method-call id="ExeImeiMemo">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-0012-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0092">
+      <page>/SO_0092.jsf</page>
+    </view>
+    <view id="SO_0083">
+      <page>/SO_0083.jsf</page>
+    </view>
+    <view id="SO_0175">
+      <page>/SO_0175.jsf</page>
+    </view>
+    <view id="SO_0030">
+      <page>/SO_0030.jsf</page>
+    </view>
+    <view id="SO_0072">
+      <page>/SO_0072.jsf</page>
+    </view>
+    <view id="SO_0140">
+      <page>/SO_0140.jsf</page>
+    </view>
+    <method-call id="doSetERPSolSCMReportDefault">
+      <method>#{bindings.doSetERPSolSCMReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-0140</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0204">
+      <page>/SO_0204.jsf</page>
+    </view>
+    <view id="SO_0204_IMEI">
+      <page>/SO_0204_IMEI.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0204-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SO_0204_SEARCH">
+      <page>/SO_0204_SEARCH.jsf</page>
+    </view>
+    <view id="SO_0180">
+      <page>/SO_0180.jsf</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeFormSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>doERPGotoSCMActivity</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ERP-ACT-SO-0167</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>ERP-ACT-SO-0161</from-outcome>
+        <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>ERP-ACT-SO-0171</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome>ERP-ACT-SO-0019</from-outcome>
+        <to-activity-id>SO_0019</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome>ERP-ACT-SO-1124</from-outcome>
+        <to-activity-id>ExeSetSCMReportDefaults</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__65">
+        <from-outcome>ERP-ACT-SO-0011</from-outcome>
+        <to-activity-id>SO_0011</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__70">
+        <from-outcome>ERP-ACT-SO-0127</from-outcome>
+        <to-activity-id>SO_0127</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__84">
+        <from-outcome>ERP-ACT-SO-0145</from-outcome>
+        <to-activity-id>doSetERPSolSCMReportSO_0145</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__89">
+        <from-outcome>ERP-ACT-SO-0012</from-outcome>
+        <to-activity-id>SO_0012</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__94">
+        <from-outcome>ERP-ACT-SO-0092</from-outcome>
+        <to-activity-id>SO_0092</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__95">
+        <from-outcome>ERP-ACT-SO-0083</from-outcome>
+        <to-activity-id>SO_0083</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__96">
+        <from-outcome>ERP-ACT-SO-0175</from-outcome>
+        <to-activity-id>SO_0175</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__97">
+        <from-outcome>ERP-ACT-SO-0030</from-outcome>
+        <to-activity-id>SO_0030</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__98">
+        <from-outcome>ERP-ACT-SO-0072</from-outcome>
+        <to-activity-id>SO_0072</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__101">
+        <from-outcome>ERP-ACT-SO-0140</from-outcome>
+        <to-activity-id>doSetERPSolSCMReportDefault</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__104">
+        <from-outcome>ERP-ACT-SO-0204</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__114">
+        <from-outcome>ERP-ACT-SO-0180</from-outcome>
+        <to-activity-id>SO_0180</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-SCM</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-SCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>doERPSolSCMSessionGlobals</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMReverse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id>ExeSysModuleSoTransaction</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>SO_0171</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ACT-SCAN-REBATE-IMEI</from-outcome>
+        <to-activity-id>SCAN_IMEI</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>ACT-SEARCH-S0-0171</from-outcome>
+        <to-activity-id>SO_0171_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>SCAN_IMEI</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>ACT-BACK-FROM-REBATE-IMEI</from-outcome>
+        <to-activity-id>ExeRebateDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id>ExeRebateDetail</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome>ACT-BACK-FROM-REBATE-IMEI</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>SO_0167_SEARCH</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ACT-BACK-TO-SO_0167</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>SO_0167</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>ACT-SEARCH-S0-0167</from-outcome>
+        <to-activity-id>SO_0167_SEARCH</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__48">
+        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSoLinesBySOID</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>SO_0171_SEARCH</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>ACT-BACK-TO-SO_0171</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>RollbackSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>RollbackSCM</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>RollbackBeforeFormSCM</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoSCMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ACT-ERP-CLOSE-FORM-SCM</from-outcome>
+        <to-activity-id>RollbackCloseFormSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id>RollbackCloseFormSCM</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome>ACT-ERP-CLOSE-FORM-SCM</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id>ExecuteWithParamsSCMReport</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExeParaReportDetailSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__49">
+      <from-activity-id>SO_0167_IMEI</from-activity-id>
+      <control-flow-case id="__50">
+        <from-outcome>ERPSOLBACK</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>ExecuteWithParamsSoLinesBySOID</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0167_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__53">
+      <from-activity-id>SO_0161</from-activity-id>
+      <control-flow-case id="__54">
+        <from-outcome>ERP-ACT-0161-SEARCH</from-outcome>
+        <to-activity-id>SO_0161_SEARCH</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome>ERP-ACT-0161-IMEI</from-outcome>
+        <to-activity-id>ExeWithParaSRIMEISO_0161_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__55">
+      <from-activity-id>SO_0161_SEARCH</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome>ERP-ACT-0161-SEARCH-BACK</from-outcome>
+        <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>ExecuteWithParamsSCMMaster</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParaSCMReverse</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__57">
+      <from-activity-id>ERPSolSCMException</from-activity-id>
+      <control-flow-case id="__58">
+        <from-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>ERPSolBackFromSCMException</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__59">
+      <from-activity-id>ERPSolBackFromSCMException</from-activity-id>
+      <control-flow-case id="__60">
+        <from-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__63">
+      <from-activity-id>ExecuteWithParaSCMReverse</from-activity-id>
+      <control-flow-case id="__64">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__61">
+      <from-activity-id>ExecuteWithParamsSCMReverse</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMMaster</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__66">
+      <from-activity-id>SO_0011</from-activity-id>
+      <control-flow-case id="__67">
+        <from-outcome>ERP-ACT-SO-0011-SEARCH</from-outcome>
+        <to-activity-id>SO_0011_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__68">
+      <from-activity-id>SO_0011_SEARCH</from-activity-id>
+      <control-flow-case id="__69">
+        <from-outcome>ERP-ACT-SO-0011-BACK-FROM-SEARCH</from-outcome>
+        <to-activity-id>SO_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__72">
+      <from-activity-id>SO_0127</from-activity-id>
+      <control-flow-case id="__73">
+        <from-outcome>ERP-ACT-SO-0127-SEARCH</from-outcome>
+        <to-activity-id>SO_0127_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__74">
+      <from-activity-id>SO_0127_SEARCH</from-activity-id>
+      <control-flow-case id="__75">
+        <from-outcome>ERP-ACT-SO-0127-BACK-FROM-SEARCH</from-outcome>
+        <to-activity-id>SO_0127</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__71">
+      <from-activity-id>ExeParaReportDetailSCM</from-activity-id>
+      <control-flow-case id="__76">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>SO_0161_IMEI</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>ERP-ACT-0161-IMEI-BACK</from-outcome>
+        <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__80">
+      <from-activity-id>ExeWithParaSRIMEISO_0161_IMEI</from-activity-id>
+      <control-flow-case id="__81">
+        <from-outcome>ERP-ACT-0161-IMEI</from-outcome>
+        <to-activity-id>SO_0161_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__82">
+      <from-activity-id>ExeSetSCMReportDefaults</from-activity-id>
+      <control-flow-case id="__83">
+        <from-outcome>ERP-ACT-SO-1124</from-outcome>
+        <to-activity-id>SO_1124</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__85">
+      <from-activity-id>doSetERPSolSCMReportSO_0145</from-activity-id>
+      <control-flow-case id="__86">
+        <from-outcome>ERP-ACT-SO-0145</from-outcome>
+        <to-activity-id>SO_0145</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__90">
+      <from-activity-id>SO_0012</from-activity-id>
+      <control-flow-case id="__91">
+        <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
+        <to-activity-id>ExeImeiMemo</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__92">
+      <from-activity-id>SO_0012_IMEI</from-activity-id>
+      <control-flow-case id="__93">
+        <from-outcome>ERP-ACT-SO-0012-IMEI-BACK</from-outcome>
+        <to-activity-id>SO_0012</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__87">
+      <from-activity-id>ExeImeiMemo</from-activity-id>
+      <control-flow-case id="__88">
+        <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
+        <to-activity-id>SO_0012_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__99">
+      <from-activity-id>doSetERPSolSCMReportDefault</from-activity-id>
+      <control-flow-case id="__100">
+        <from-outcome>ERP-ACT-SO-0140</from-outcome>
+        <to-activity-id>SO_0140</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__102">
+      <from-activity-id>SO_0204</from-activity-id>
+      <control-flow-case id="__103">
+        <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__109">
+        <from-outcome>ACTPGOTO-SO_0204_SEARCH</from-outcome>
+        <to-activity-id>SO_0204_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__105">
+      <from-activity-id>SO_0204_IMEI</from-activity-id>
+      <control-flow-case id="__106">
+        <from-outcome>ERPSOLBACK</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__107">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__108">
+        <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0204_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__111">
+      <from-activity-id>SO_0204_SEARCH</from-activity-id>
+      <control-flow-case id="__112">
+        <from-outcome>ACTPGOTO-SO_0204_SEARCH_BACK</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

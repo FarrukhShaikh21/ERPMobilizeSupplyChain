@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0161_IMEIPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesReturnMemoCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
+    <iterator Binds="SrimeiMemoByReturnmemolineseqCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SrimeiViewBySrdetlinesseqCRUDIterator"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiMemoByReturnmemolineseqCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"
+                      Name="SrimeiMemoByReturnmemolineseqCRUD0">
+        <AttrNames>
+          <Item Value="Productid"/>
+          <Item Value="TempBoxNo"/>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="doERPSolRemoveSaleReturnBox1" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolRemoveSaleReturnBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiMemoByReturnmemolineseqCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiMemoByReturnmemolineseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
+  </bindings>
+</pageDefinition>

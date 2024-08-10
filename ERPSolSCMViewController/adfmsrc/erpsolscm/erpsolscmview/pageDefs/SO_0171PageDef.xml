@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0171PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoRebateCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateCRUDIterator"/>
+    <iterator Binds="SoRebateDetailCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateDetailCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="RebateId">
+      <AttrNames>
+        <Item Value="RebateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Rdate">
+      <AttrNames>
+        <Item Value="Rdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtCustomerName" id="txtCustomerName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
+                  id="txtSalesPersonName"/>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="ManualRefNo">
+      <AttrNames>
+        <Item Value="ManualRefNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="ConsignmentNo">
+      <AttrNames>
+        <Item Value="ConsignmentNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtSupplierName" id="txtSupplierName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SoRebateCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SoRebateCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SoRebateCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SoRebateCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doSuperviseSalesRebate" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSalesRebate" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoRebateCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesRebate_ERPSolSCMAppModuleDataControl_SoRebateCRUD_doSuperviseSalesRebate_result"/>
+    <list IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovCatid" id="Catid" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SoRebateDetailCRUDIterator" id="SoRebateDetailCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateDetailView" Name="SoRebateDetailCRUD0">
+        <AttrNames>
+          <Item Value="Productid"/>
+          <Item Value="Discount"/>
+          <Item Value="RebateQty"/>
+          <Item Value="PreviousRate"/>
+          <Item Value="CurrentRate"/>
+          <Item Value="ErrorDesc"/>
+          <Item Value="IsError"/>
+          <Item Value="Itemid"/>
+          <Item Value="GenerateSo"/>
+          <Item Value="ManualRate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
