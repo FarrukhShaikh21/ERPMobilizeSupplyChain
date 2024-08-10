@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SoImeiDetailView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoImeiDetailViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwGetItemInfoByIMEIQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwGetItemInfoByIMEIQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_IMEI">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Imei==null?"0":Imei]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovPreviousItemid"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PreviousItemid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
+  </ListBinding>
+  <EntityUsage
+    Name="SoImeiDetail"
+    Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoImeiDetail"/>
+  <ViewAttribute
+    Name="ImeiDetailSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ImeiDetailSno"
+    EntityUsage="SoImeiDetail"
+    AliasName="IMEI_DETAIL_SNO"/>
+  <ViewAttribute
+    Name="ImeiMasterSno"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ImeiMasterSno"
+    EntityUsage="SoImeiDetail"
+    AliasName="IMEI_MASTER_SNO"/>
+  <ViewAttribute
+    Name="Itemid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Itemid"
+    EntityUsage="SoImeiDetail"
+    AliasName="ITEMID"/>
+  <ViewAttribute
+    Name="Imei"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Imei"
+    EntityUsage="SoImeiDetail"
+    AliasName="IMEI"/>
+  <ViewAttribute
+    Name="RestrictImei"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RestrictImei"
+    EntityUsage="SoImeiDetail"
+    AliasName="RESTRICT_IMEI"/>
+  <ViewAttribute
+    Name="ForceAllow"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ForceAllow"
+    EntityUsage="SoImeiDetail"
+    AliasName="FORCE_ALLOW"/>
+  <ViewAttribute
+    Name="IsAvailable"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsAvailable"
+    EntityUsage="SoImeiDetail"
+    AliasName="IS_AVAILABLE"/>
+  <ViewAttribute
+    Name="AllowSo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AllowSo"
+    EntityUsage="SoImeiDetail"
+    AliasName="ALLOW_SO"/>
+  <ViewAttribute
+    Name="AllowSr"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AllowSr"
+    EntityUsage="SoImeiDetail"
+    AliasName="ALLOW_SR"/>
+  <ViewAttribute
+    Name="Generate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Generate"
+    EntityUsage="SoImeiDetail"
+    AliasName="GENERATE"/>
+  <ViewAttribute
+    Name="Createdby"
+    PrecisionRule="true"
+    EntityAttrName="Createdby"
+    EntityUsage="SoImeiDetail"
+    AliasName="CREATEDBY"/>
+  <ViewAttribute
+    Name="CreatedDate"
+    PrecisionRule="true"
+    EntityAttrName="CreatedDate"
+    EntityUsage="SoImeiDetail"
+    AliasName="CREATED_DATE"/>
+  <ViewAttribute
+    Name="Modifiedby"
+    PrecisionRule="true"
+    EntityAttrName="Modifiedby"
+    EntityUsage="SoImeiDetail"
+    AliasName="MODIFIEDBY"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="SoImeiDetail"
+    AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="PreviousItemid"
+    PrecisionRule="true"
+    EntityAttrName="PreviousItemid"
+    EntityUsage="SoImeiDetail"
+    AliasName="PREVIOUS_ITEMID"
+    LOVName="LovPreviousItemid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Reason"
+    PrecisionRule="true"
+    EntityAttrName="Reason"
+    EntityUsage="SoImeiDetail"
+    AliasName="REASON"/>
+  <ViewAttribute
+    Name="StopCustomer"
+    PrecisionRule="true"
+    EntityAttrName="StopCustomer"
+    EntityUsage="SoImeiDetail"
+    AliasName="STOP_CUSTOMER"/>
+  <ViewAttribute
+    Name="IsJobCard"
+    PrecisionRule="true"
+    EntityAttrName="IsJobCard"
+    EntityUsage="SoImeiDetail"
+    AliasName="IS_JOB_CARD"/>
+  <ViewAttribute
+    Name="SprDebitAmount"
+    PrecisionRule="true"
+    EntityAttrName="SprDebitAmount"
+    EntityUsage="SoImeiDetail"
+    AliasName="SPR_DEBIT_AMOUNT"/>
+  <ViewAttribute
+    Name="AllowSrWr"
+    PrecisionRule="true"
+    EntityAttrName="AllowSrWr"
+    EntityUsage="SoImeiDetail"
+    AliasName="ALLOW_SR_WR"/>
+  <ViewAttribute
+    Name="AllowInc"
+    PrecisionRule="true"
+    EntityAttrName="AllowInc"
+    EntityUsage="SoImeiDetail"
+    AliasName="ALLOW_INC"/>
+  <ViewAttribute
+    Name="RestrictReason"
+    PrecisionRule="true"
+    EntityAttrName="RestrictReason"
+    EntityUsage="SoImeiDetail"
+    AliasName="RESTRICT_REASON"/>
+  <ViewAttribute
+    Name="RestrictReasonId"
+    PrecisionRule="true"
+    EntityAttrName="RestrictReasonId"
+    EntityUsage="SoImeiDetail"
+    AliasName="RESTRICT_REASON_ID"/>
+  <ViewAttribute
+    Name="txtModelNo"
+    PrecisionRule="true"
+    EntityAttrName="txtModelNo"
+    EntityUsage="SoImeiDetail"
+    AliasName="TXT_MODEL_NO"
+    LOVName="LovtxtModelNo"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SoImeiMasterView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoImeiDetailItemIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>
