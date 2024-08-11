@@ -62,5 +62,20 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="PuPurchaseOrdersCRUDIterator" StaticList="false" Uses="LovPaymenttermid" id="Paymenttermid"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action IterBinding="PuPurchaseOrdersCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PuPurchaseOrdersCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PuPurchaseOrdersCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="PuPurchaseOrdersCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

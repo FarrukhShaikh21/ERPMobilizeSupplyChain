@@ -259,6 +259,9 @@
     <view id="SO_0022">
       <page>/SO_0022.jsf</page>
     </view>
+    <view id="SO_0022_IMEI">
+      <page>/SO_0022_IMEI.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -642,6 +645,20 @@
       <control-flow-case id="__112">
         <from-outcome>ACTPGOTO-SO_0204_SEARCH_BACK</from-outcome>
         <to-activity-id>SO_0204</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__110">
+      <from-activity-id>SO_0022</from-activity-id>
+      <control-flow-case id="__113">
+        <from-outcome>ACT-ERP-SO-0022-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0022_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__116">
+      <from-activity-id>SO_0022_IMEI</from-activity-id>
+      <control-flow-case id="__117">
+        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN-BACK</from-outcome>
+        <to-activity-id>SO_0022</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
