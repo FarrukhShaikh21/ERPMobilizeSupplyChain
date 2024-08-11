@@ -1383,6 +1383,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoImeiDetailItemIdAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PuPoLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.PuPoLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>

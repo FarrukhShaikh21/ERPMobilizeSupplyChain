@@ -69,7 +69,6 @@
   </Attribute>
   <Attribute
     Name="Itemid"
-    IsUnique="true"
     Precision="15"
     ColumnName="ITEMID"
     SQLType="VARCHAR"
@@ -670,11 +669,80 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtModelNo"
+    Precision="100"
+    ColumnName="TXT_MODEL_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[InItems1?.ModelNo]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.txtModelNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="TXT_GROSS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(UnitPriceInBcurr==null?0:UnitPriceInBcurr) * (OrderQty==null?0:OrderQty)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="OrderQty"/>
+      <Item
+        Value="UnitPriceInBcurr"/>
+      <Item
+        Value="UnitPriceInFcurr"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtNetAmount"
+    ColumnName="TXT_NET_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(UnitPriceInBcurr==null?0:UnitPriceInBcurr) * (OrderQty==null?0:OrderQty)]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.txtNetAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="PuPurchaseOrders"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC00123039Assoc"
     AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC00123039Assoc.PuPurchaseOrders"
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC00123039Assoc.PuPoLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InItems"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.InItems"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.PuPoLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -710,6 +778,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.Poid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PuPoLines">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKIN_ITEMS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PU_PO_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.Itemid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

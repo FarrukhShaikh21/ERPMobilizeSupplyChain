@@ -897,4 +897,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoImeiDetailItemIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPoLinesVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPoLinesLinesItemidLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

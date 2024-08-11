@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="PuPurchaseOrdersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="PuPurchaseOrdersCRUDIterator"/>
+    <iterator Binds="PuPoLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPoLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Poid">
@@ -77,5 +79,16 @@
         <Item Value="Posted"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="PuPoLinesDetCRUDIterator" id="PuPoLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPoLinesVO" Name="PuPoLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="txtModelNo"/>
+          <Item Value="OrderQty"/>
+          <Item Value="UnitPriceInBcurr"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

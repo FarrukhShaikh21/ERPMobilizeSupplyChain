@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="InItemsPuPoLinesLinesItemidAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="InItems"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.InItems"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="InItems"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.InItems.XpkinItems"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.InItems.Itemid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="PuPoLines"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PuPoLines"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.fk_PuPoLines"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.Itemid"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
