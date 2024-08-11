@@ -13,6 +13,106 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllPaymentTermsVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllPaymentTermsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllDeliveryTermsVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllDeliveryTermsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllStoresVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovPaymenttermid"
+    ListVOName="AccAllPaymentTermsVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Paymenttermid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Paymenttermid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovDeliverytermid"
+    ListVOName="AccAllDeliveryTermsVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Deliverytermid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Deliverytermid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtStoreName"
+    ListVOName="AccAllStoresVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStoreName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ReceStoreid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllStoresViewUserWiseVC"/>
+  </ListBinding>
   <EntityUsage
     Name="PuPurchaseOrders"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders"/>
@@ -50,14 +150,30 @@
     PrecisionRule="true"
     EntityAttrName="Deliverytermid"
     EntityUsage="PuPurchaseOrders"
-    AliasName="DELIVERYTERMID"/>
+    AliasName="DELIVERYTERMID"
+    LOVName="LovDeliverytermid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Paymenttermid"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Paymenttermid"
     EntityUsage="PuPurchaseOrders"
-    AliasName="PAYMENTTERMID"/>
+    AliasName="PAYMENTTERMID"
+    LOVName="LovPaymenttermid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ReceStoreid"
     PrecisionRule="true"
@@ -220,9 +336,53 @@
     EntityAttrName="Poseq"
     EntityUsage="PuPurchaseOrders"
     AliasName="POSEQ"/>
+  <ViewAttribute
+    Name="txtLocationName"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_LOCATION_NAME"
+    IsQueriable="false"
+    IsPersistent="false"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtStoreName"
+    PrecisionRule="true"
+    EntityAttrName="txtStoreName"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_STORE_NAME"
+    LOVName="LovtxtStoreName"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="PuPoLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC00123039Link"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllLocationsPuPurchaseOrderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllStoresView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStorePuPurchseOrderRecStoreIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

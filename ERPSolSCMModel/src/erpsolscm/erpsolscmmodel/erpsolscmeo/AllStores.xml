@@ -613,6 +613,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso.AllStores"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PuPurchaseOrders"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStorePuPurchseOrderRecStoreIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStorePuPurchseOrderRecStoreIdAssoc.PuPurchaseOrders"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStorePuPurchseOrderRecStoreIdAssoc.AllStores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallStores"
     PrimaryKey="true">

@@ -466,4 +466,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllLocationsAllCustomerLocationIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseOrdersVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllLocationsPuPurchaseOrderLocationIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
