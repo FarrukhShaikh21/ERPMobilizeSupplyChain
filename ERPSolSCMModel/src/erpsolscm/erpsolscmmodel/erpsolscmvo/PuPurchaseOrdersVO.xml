@@ -29,6 +29,10 @@
     Name="AccAllStoresVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccPuSuppliersView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovPaymenttermid"
     ListVOName="AccAllPaymentTermsVO"
@@ -112,6 +116,31 @@
     </AttrArray>
     <DisplayCriteria
       Name="AllStoresViewUserWiseVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_txtSupplierName"
+    ListVOName="AccPuSuppliersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersViewFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="PuPurchaseOrders"
@@ -368,6 +397,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LOV_txtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="PuPoLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC00123039Link"
@@ -382,6 +427,12 @@
   <ViewLinkAccessor
     Name="AllStoresView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStorePuPurchseOrderRecStoreIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierPuPurchseOrderSupplierIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

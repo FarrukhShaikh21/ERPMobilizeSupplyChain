@@ -5,6 +5,62 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="PuPurchaseOrdersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseOrdersCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Poid">
+      <AttrNames>
+        <Item Value="Poid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="PoDate">
+      <AttrNames>
+        <Item Value="PoDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PuPurchaseOrdersCRUDIterator" StaticList="false" Uses="LovtxtStoreName"
+                  id="txtStoreName"/>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PuPurchaseOrdersCRUDIterator" StaticList="false" Uses="LOV_txtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="ReceStoreid">
+      <AttrNames>
+        <Item Value="ReceStoreid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="LcRef">
+      <AttrNames>
+        <Item Value="LcRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="SuppRefno">
+      <AttrNames>
+        <Item Value="SuppRefno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="SuppRefDate">
+      <AttrNames>
+        <Item Value="SuppRefDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="PuPurchaseOrdersCRUDIterator" StaticList="false" Uses="LovDeliverytermid" id="Deliverytermid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="PuPurchaseOrdersCRUDIterator" StaticList="false" Uses="LovPaymenttermid" id="Paymenttermid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
 </pageDefinition>
