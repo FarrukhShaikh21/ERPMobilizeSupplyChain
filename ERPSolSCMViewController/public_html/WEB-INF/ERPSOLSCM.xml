@@ -35,7 +35,6 @@
       <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
-    <exception-handler>ERPSolSCMException</exception-handler>
     <view id="SO_0167">
       <page>/SO_0167.jsf</page>
     </view>

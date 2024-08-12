@@ -90,5 +90,13 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="PuPoLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PuPoLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

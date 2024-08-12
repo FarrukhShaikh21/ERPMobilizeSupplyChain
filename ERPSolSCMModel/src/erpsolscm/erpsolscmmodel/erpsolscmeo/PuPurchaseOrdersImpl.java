@@ -3,6 +3,8 @@ package erpsolscm.erpsolscmmodel.erpsolscmeo;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
+import java.math.BigDecimal;
+
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
@@ -56,6 +58,10 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         txtStoreName,
         txtSupplierName,
+        txtGrossAmount,
+        txtSumGrossAmount,
+        txtSumNetmount,
+        txtSumQuantity,
         PuPoLines,
         AllLocations,
         AllStores,
@@ -119,6 +125,10 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
+    public static final int TXTSUMGROSSAMOUNT = AttributesEnum.txtSumGrossAmount.index();
+    public static final int TXTSUMNETMOUNT = AttributesEnum.txtSumNetmount.index();
+    public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int PUPOLINES = AttributesEnum.PuPoLines.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -696,6 +706,70 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
+     * @return the value of txtGrossAmount
+     */
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtGrossAmount.
+     * @param value value to set the txtGrossAmount
+     */
+    public void settxtGrossAmount(BigDecimal value) {
+        setAttributeInternal(TXTGROSSAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSumGrossAmount, using the alias name txtSumGrossAmount.
+     * @return the value of txtSumGrossAmount
+     */
+    public BigDecimal gettxtSumGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTSUMGROSSAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSumGrossAmount.
+     * @param value value to set the txtSumGrossAmount
+     */
+    public void settxtSumGrossAmount(BigDecimal value) {
+        setAttributeInternal(TXTSUMGROSSAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSumNetmount, using the alias name txtSumNetmount.
+     * @return the value of txtSumNetmount
+     */
+    public BigDecimal gettxtSumNetmount() {
+        return (BigDecimal) getAttributeInternal(TXTSUMNETMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSumNetmount.
+     * @param value value to set the txtSumNetmount
+     */
+    public void settxtSumNetmount(BigDecimal value) {
+        setAttributeInternal(TXTSUMNETMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSumQuantity, using the alias name txtSumQuantity.
+     * @return the value of txtSumQuantity
+     */
+    public Integer gettxtSumQuantity() {
+        return (Integer) getAttributeInternal(TXTSUMQUANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSumQuantity.
+     * @param value value to set the txtSumQuantity
+     */
+    public void settxtSumQuantity(Integer value) {
+        setAttributeInternal(TXTSUMQUANTITY, value);
     }
 
     /**

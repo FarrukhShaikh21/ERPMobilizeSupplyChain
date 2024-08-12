@@ -636,7 +636,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="PU_PURCHASE_ORDERS"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -649,6 +648,71 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.txtSupplierName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="TXT_GROSS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="PU_PURCHASE_ORDERS">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuPoLines?.sum("txtNetAmount")==null?0:PuPoLines?.sum("txtNetAmount")]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="txtSumGrossAmount"
+    ColumnName="TXT_SUM_GROSS_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuPoLines?.sum("txtGrossAmount")==null?0:PuPoLines?.sum("txtGrossAmount")]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.txtSumGrossAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtSumNetmount"
+    ColumnName="TXT_SUM_NETMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuPoLines?.sum("txtNetAmount")==null?0:PuPoLines?.sum("txtNetAmount")]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.txtSumNetmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtSumQuantity"
+    ColumnName="TXT_SUM_QUANTITY"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.txtSumQuantity_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

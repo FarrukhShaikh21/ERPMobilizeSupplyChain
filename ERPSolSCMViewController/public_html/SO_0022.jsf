@@ -334,18 +334,12 @@
               </af:gridRow>
               <af:gridRow marginTop="5px" marginBottom="5px" id="gr11">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
-                  <af:button text="IMEI" id="b11" action="ACT-ERP-SO-0167-IMEI-SCAN">
-                    <af:setActionListener from="#{bindings.Poid.inputValue}"
-                                          to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
-                    <af:setActionListener from="#{row.bindings.Productid.inputValue}"
-                                          to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>
-                  </af:button>
                   <af:panelCollection id="pc1" styleClass="AFAuxiliaryStretchWidth" featuresOff="detach">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Order Line"
-                                   disabled="#{bindings.ReadyForIssue.inputValue=='Y' || bindings.Salespersonid.inputValue==null}" id="b7" accessKey="a"/>
+                                   disabled="#{bindings.Supplierid.inputValue==null || bindings.Posted.inputValue=='Y'}" id="b7" accessKey="a"/>
                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Order Line"
                                    disabled="#{bindings.ReadyForIssue.inputValue=='Y'}" id="b8"/>
                       </af:toolbar>
@@ -365,11 +359,6 @@
                                          inlineStyle="font-weight:bold">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumGross.format}"/>
                           </af:outputText>
-                          <af:outputText value="Discount : #{bindings.txtSumDiscount.inputValue}"
-                                         shortDesc="#{bindings.txtSumDiscount.hints.tooltip}" id="ot10"
-                                         inlineStyle="font-weight:bold">
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumDiscount.format}"/>
-                          </af:outputText>
                           <af:outputText value="Net Amount : #{bindings.txtSumNetAmount.inputValue}"
                                          shortDesc="#{bindings.txtSumNetAmount.hints.tooltip}" id="ot8"
                                          inlineStyle="font-weight:bold">
@@ -387,7 +376,16 @@
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.PuPoLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.PuPoLinesDetCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.PuPoLinesDetCRUD.rangeSize}" id="t2">
+                              rowSelection="single" fetchSize="#{bindings.PuPoLinesDetCRUD.rangeSize}" id="t2"
+                              partialTriggers="::b7 ::b8" columnStretching="last">
+                      <af:column id="c6">
+                        <af:button text="IMEI" id="b11" action="ACT-ERP-SO-0167-IMEI-SCAN">
+                          <af:setActionListener from="#{bindings.Poid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
+                          <af:setActionListener from="#{row.bindings.Productid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>
+                        </af:button>
+                      </af:column>
                       <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}" id="c1">
                         <af:inputComboboxListOfValues id="txtModelNoId"
                                                       popupTitle="Search and Select: #{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}"
@@ -429,7 +427,8 @@
                                       required="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.mandatory}"
                                       columns="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.displayWidth}"
                                       maximumLength="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.precision}"
-                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.tooltip}" id="it3">
+                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.tooltip}" id="it3"
+                                      readOnly="true">
                           <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.format}"/>

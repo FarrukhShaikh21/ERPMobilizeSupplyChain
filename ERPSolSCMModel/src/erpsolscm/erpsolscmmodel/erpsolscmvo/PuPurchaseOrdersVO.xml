@@ -413,6 +413,30 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumQuantity"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumQuantity"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_SUM_QUANTITY"/>
+  <ViewAttribute
+    Name="txtSumNetmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumNetmount"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_SUM_NETMOUNT"/>
+  <ViewAttribute
+    Name="txtSumGrossAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumGrossAmount"
+    EntityUsage="PuPurchaseOrders"
+    AliasName="TXT_SUM_GROSS_AMOUNT"/>
   <ViewLinkAccessor
     Name="PuPoLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC00123039Link"
