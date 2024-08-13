@@ -36,7 +36,6 @@
   <Attribute
     Name="Poid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="POID"
     SQLType="VARCHAR"
@@ -97,7 +96,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="PU_PO_LINES">
+    TableName="PU_PO_LINES"
+    DefaultValue="CBU">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
