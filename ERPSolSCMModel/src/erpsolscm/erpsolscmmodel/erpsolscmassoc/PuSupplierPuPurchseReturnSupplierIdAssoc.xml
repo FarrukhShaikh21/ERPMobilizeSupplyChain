@@ -3,38 +3,40 @@
 <!---->
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="FkPrlPridAssoc"
+  Name="PuSupplierPuPurchseReturnSupplierIdAssoc"
   Version="12.1.3.10.47"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="PuPurchaseReturn"
+    Name="PuSuppliers"
     Cardinality="1"
     Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuSuppliers"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PuSuppliers"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuSuppliers.XpkpuSuppliers"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuSuppliers.Supplierid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="PuPurchaseReturn"
+    Cardinality="-1"
     Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="PuPurchaseReturn"/>
-      <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_minCardinality" Value="1"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.Prseqno"/>
-    </AttrArray>
-  </AssociationEnd>
-  <AssociationEnd
-    Name="PuPurchaseReturnLines"
-    Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines">
-    <DesignTime>
-      <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="PuPurchaseReturnLines"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.fk_PuPurchaseReturn"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines.Prseqno"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.Supplierid"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

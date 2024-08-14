@@ -13,6 +13,37 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+      <Item Value="txtProductId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Itemid"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="PuPurchaseReturnLines"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines"/>
@@ -104,15 +135,53 @@
     EntityUsage="PuPurchaseReturnLines"
     AliasName="QTY_ISSUED"/>
   <ViewAttribute
-    Name="Poseqno"
-    PrecisionRule="true"
-    EntityAttrName="Poseqno"
-    EntityUsage="PuPurchaseReturnLines"
-    AliasName="POSEQNO"/>
-  <ViewAttribute
     Name="Prlineseqno"
     PrecisionRule="true"
     EntityAttrName="Prlineseqno"
     EntityUsage="PuPurchaseReturnLines"
     AliasName="PRLINESEQNO"/>
+  <ViewAttribute
+    Name="txtAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtAmount"
+    EntityUsage="PuPurchaseReturnLines"
+    AliasName="TXT_AMOUNT"/>
+  <ViewAttribute
+    Name="Prseqno"
+    PrecisionRule="true"
+    EntityAttrName="Prseqno"
+    EntityUsage="PuPurchaseReturnLines"
+    AliasName="PRSEQNO"/>
+  <ViewAttribute
+    Name="txtProductId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProductId"
+    EntityUsage="PuPurchaseReturnLines"
+    AliasName="TXT_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="txtModelNo"
+    PrecisionRule="true"
+    EntityAttrName="txtModelNo"
+    EntityUsage="PuPurchaseReturnLines"
+    AliasName="TXT_MODEL_NO"
+    LOVName="LovtxtModelNo"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPurchseReturnLinesItemidLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

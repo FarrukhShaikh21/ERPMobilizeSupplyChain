@@ -13,6 +13,90 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllStoresView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewByLocationVC"/>
+    <ViewCriteriaUsage
+      Name="AllStoresViewUserWiseVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewUserWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_USERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccPuSuppliersView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView.PuSuppliersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovtxtStoreName"
+    ListVOName="AccAllStoresView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStoreName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllStoresViewUserWiseVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersViewFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="PuPurchaseReturn"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn"/>
@@ -140,9 +224,63 @@
     EntityAttrName="Prseqno"
     EntityUsage="PuPurchaseReturn"
     AliasName="PRSEQNO"/>
+  <ViewAttribute
+    Name="txtStoreName"
+    PrecisionRule="true"
+    EntityAttrName="txtStoreName"
+    EntityUsage="PuPurchaseReturn"
+    AliasName="TXT_STORE_NAME"
+    IsQueriable="false"
+    IsPersistent="false"
+    LOVName="LovtxtStoreName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierName"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="PuPurchaseReturn"
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSumNetAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumNetAmount"
+    EntityUsage="PuPurchaseReturn"
+    AliasName="TXT_SUM_NET_AMOUNT"/>
+  <ViewAttribute
+    Name="txtSumQuantity"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSumQuantity"
+    EntityUsage="PuPurchaseReturn"
+    AliasName="TXT_SUM_QUANTITY"/>
   <ViewLinkAccessor
     Name="PuPurchaseReturnLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.FkPrlPridLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierPuPurchseReturnSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

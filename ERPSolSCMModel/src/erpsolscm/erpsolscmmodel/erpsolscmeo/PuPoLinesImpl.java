@@ -18,7 +18,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
+public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -66,6 +66,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
         txtModelNo,
         txtGrossAmount,
         txtNetAmount,
+        txtProductId,
         PuPurchaseOrders,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -90,6 +91,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
             return vals;
         }
     }
+
     public static final int POITEMID = AttributesEnum.Poitemid.index();
     public static final int POID = AttributesEnum.Poid.index();
     public static final int DMDITEMID = AttributesEnum.Dmditemid.index();
@@ -133,6 +135,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
     public static final int TXTMODELNO = AttributesEnum.txtModelNo.index();
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int PUPURCHASEORDERS = AttributesEnum.PuPurchaseOrders.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -140,6 +143,13 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
      * This is the default constructor (do not remove).
      */
     public PuPoLinesImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines");
     }
 
     /**
@@ -831,6 +841,22 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
     }
 
     /**
+     * Gets the attribute value for txtProductId, using the alias name txtProductId.
+     * @return the value of txtProductId
+     */
+    public String gettxtProductId() {
+        return (String) getAttributeInternal(TXTPRODUCTID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtProductId.
+     * @param value value to set the txtProductId
+     */
+    public void settxtProductId(String value) {
+        setAttributeInternal(TXTPRODUCTID, value);
+    }
+
+    /**
      * @return the associated entity PuPurchaseOrdersImpl.
      */
     public PuPurchaseOrdersImpl getPuPurchaseOrders() {
@@ -858,6 +884,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
         setAttributeInternal(INITEMS, value);
     }
 
+
     /**
      * @param polinesseq key constituent
 
@@ -865,13 +892,6 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl  {
      */
     public static Key createPrimaryKey(Integer polinesseq) {
         return new Key(new Object[] { polinesseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines");
     }
 
     /**

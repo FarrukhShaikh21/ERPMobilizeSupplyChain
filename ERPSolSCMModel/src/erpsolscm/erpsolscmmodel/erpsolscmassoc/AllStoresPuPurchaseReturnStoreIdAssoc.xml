@@ -3,38 +3,40 @@
 <!---->
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="FkPrlPridAssoc"
+  Name="AllStoresPuPurchaseReturnStoreIdAssoc"
   Version="12.1.3.10.47"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="PuPurchaseReturn"
+    Name="AllStores"
     Cardinality="1"
     Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStores"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AllStores"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStores.XpkallStores"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStores.Storeid"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="PuPurchaseReturn"
+    Cardinality="-1"
     Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="PuPurchaseReturn"/>
-      <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_minCardinality" Value="1"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.Prseqno"/>
-    </AttrArray>
-  </AssociationEnd>
-  <AssociationEnd
-    Name="PuPurchaseReturnLines"
-    Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines">
-    <DesignTime>
-      <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="PuPurchaseReturnLines"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.fk_PuPurchaseReturn1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines.Prseqno"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturn.Storeid"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

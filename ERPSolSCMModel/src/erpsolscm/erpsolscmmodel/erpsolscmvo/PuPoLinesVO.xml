@@ -325,6 +325,14 @@
     EntityAttrName="txtGrossAmount"
     EntityUsage="PuPoLines"
     AliasName="TXT_GROSS_AMOUNT"/>
+  <ViewAttribute
+    Name="txtProductId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProductId"
+    EntityUsage="PuPoLines"
+    AliasName="TXT_PRODUCT_ID"/>
   <ViewLinkAccessor
     Name="InItemsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPoLinesLinesItemidLink"

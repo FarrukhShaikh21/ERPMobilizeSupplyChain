@@ -1390,6 +1390,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PuPurchaseReturnLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPurchseReturnLinesItemidAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPurchseReturnLinesItemidAssoc.PuPurchaseReturnLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPurchseReturnLinesItemidAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>

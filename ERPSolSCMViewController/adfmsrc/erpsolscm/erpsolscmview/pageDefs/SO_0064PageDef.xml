@@ -5,6 +5,87 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="PuPurchaseReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseReturnCRUDIterator"/>
+    <iterator Binds="PuPurchaseReturnLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseReturnLinesDetCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="PrId">
+      <AttrNames>
+        <Item Value="PrId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="PrDate">
+      <AttrNames>
+        <Item Value="PrDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PuPurchaseReturnCRUDIterator" StaticList="false" Uses="LovtxtStoreName"
+                  id="txtStoreName"/>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="PuPurchaseReturnCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PuPurchaseReturnCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="PuPurchaseReturnCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="PuPurchaseReturnCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PuPurchaseReturnCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="PuPurchaseReturnLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="PuPurchaseReturnLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="PuPurchaseReturnLinesDetCRUDIterator" id="PuPurchaseReturnLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseReturnLinesVO"
+                      Name="PuPurchaseReturnLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="Lineno"/>
+          <Item Value="txtModelNo"/>
+          <Item Value="txtProductId"/>
+          <Item Value="ReturnQty"/>
+          <Item Value="UnitPriceInBcurr"/>
+          <Item Value="txtAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="txtSumNetAmount">
+      <AttrNames>
+        <Item Value="txtSumNetAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

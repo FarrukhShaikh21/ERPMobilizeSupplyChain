@@ -902,4 +902,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPoLinesLinesItemidLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseReturnLinesVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPurchseReturnLinesItemidLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
