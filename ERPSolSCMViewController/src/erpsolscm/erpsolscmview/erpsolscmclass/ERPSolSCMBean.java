@@ -1119,4 +1119,47 @@ public class ERPSolSCMBean {
     public String getERPIteratorName() {
         return ERPIteratorName;
     }
+    
+    public void handleEnterEventPOIMEI(ClientEvent ce) {
+    String value = (String) ce.getParameters().get("fvalue");
+    System.out.println(value);
+
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        DCDataControl dc = bc.getDataControl();
+        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_PO_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','I','"+getERPSolProductId()+"'); end;";
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     cs.executeUpdate();
+                     ERPSolPlsql=cs.getString(1);
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                     erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("PuPurchaseOrderImeiDetCRUD").executeQuery();
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                     }
+                 } catch (SQLException e) {
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+    //        setERPSolImeiBox(null);
+    //        getERPSolImeiBoxText().setValue(null);
+    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        
+
+    //        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+    //        ViewObject ERPSolvo=ib.getViewObject();
+    //        Row ERPsolrow=ERPSolvo.createRow();
+    //        ERPsolrow.setAttribute("ImeiNo", message);
+    //        ERPSolvo.insertRow(ERPsolrow);
+    }
 }

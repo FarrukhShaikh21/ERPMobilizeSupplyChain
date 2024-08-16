@@ -758,6 +758,26 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtPosted"
+    Precision="80"
+    ColumnName="TXT_POSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuPurchaseOrders?.Posted]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.txtPosted_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="PuPurchaseOrders"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC00123039Assoc"
@@ -772,6 +792,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPoLinesLinesItemidAssoc.PuPoLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PuPurchaseOrderImei"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc.PuPurchaseOrderImei"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc.PuPoLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC00122186"
     PrimaryKey="true">

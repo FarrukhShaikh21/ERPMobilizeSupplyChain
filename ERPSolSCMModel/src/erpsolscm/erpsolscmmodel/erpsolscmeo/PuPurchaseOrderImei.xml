@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PuPurchaseOrderImei"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PU_PURCHASE_ORDER_IMEI"
+  AliasName="PuPurchaseOrderImei"
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImeiImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="Poimeiseqno"
+    IsNotNull="true"
+    ColumnName="POIMEISEQNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PU_PURCHASE_ORDER_IMEI"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="InvalidImei"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="INVALID_IMEI"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI"
+    DefaultValue="N">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Createdby"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="CREATEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    IsNotNull="true"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="PU_PURCHASE_ORDER_IMEI"/>
+  <Attribute
+    Name="Modifiedby"
+    Precision="20"
+    ColumnName="MODIFIEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="PU_PURCHASE_ORDER_IMEI"/>
+  <Attribute
+    Name="Imei"
+    Precision="15"
+    ColumnName="IMEI"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ErrorDescription"
+    Precision="200"
+    ColumnName="ERROR_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CompanyCode"
+    Precision="3"
+    ColumnName="COMPANY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Itemid"
+    Precision="15"
+    ColumnName="ITEMID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemRefId"
+    Precision="15"
+    ColumnName="ITEM_REF_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Polineseqno"
+    ColumnName="POLINESEQNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PU_PURCHASE_ORDER_IMEI"/>
+  <Attribute
+    Name="Poseq"
+    ColumnName="POSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="PU_PURCHASE_ORDER_IMEI"/>
+  <AccessorAttribute
+    Name="PuPoLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc.PuPoLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc.PuPurchaseOrderImei"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLinesImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PupurchaseorderimeiPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PUPURCHASEORDERIMEI_PRIMARY_KE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei.Poimeiseqno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PuPurchaseOrderImei">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C00122186"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PU_PURCHASE_ORDER_IMEI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei.Polineseqno"/>
+    </AttrArray>
+  </Key>
+</Entity>

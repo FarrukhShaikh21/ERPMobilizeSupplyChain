@@ -666,7 +666,7 @@
     <control-flow-rule id="__116">
       <from-activity-id>SO_0022_IMEI</from-activity-id>
       <control-flow-case id="__117">
-        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN-BACK</from-outcome>
+        <from-outcome>ERPSOLBACK</from-outcome>
         <to-activity-id>SO_0022</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -680,7 +680,7 @@
     <control-flow-rule id="__123">
       <from-activity-id>SO_0064_IMEI</from-activity-id>
       <control-flow-case id="__124">
-        <from-outcome>ACT-ERP-SO-0064-IMEI-SCAN-SEARCH</from-outcome>
+        <from-outcome>ERPSOLBACK</from-outcome>
         <to-activity-id>SO_0064</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

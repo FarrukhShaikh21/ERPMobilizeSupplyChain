@@ -87,6 +87,7 @@
           <Item Value="UnitPriceInBcurr"/>
           <Item Value="txtGrossAmount"/>
           <Item Value="Remarks"/>
+          <Item Value="txtProductId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -96,6 +97,11 @@
     <attributeValues IterBinding="PuPurchaseOrdersCRUDIterator" id="txtSumQuantity">
       <AttrNames>
         <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPoLinesDetCRUDIterator" id="txtProductId">
+      <AttrNames>
+        <Item Value="txtProductId"/>
       </AttrNames>
     </attributeValues>
   </bindings>

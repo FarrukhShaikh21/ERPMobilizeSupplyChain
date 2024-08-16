@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -67,8 +68,10 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
         txtGrossAmount,
         txtNetAmount,
         txtProductId,
+        txtPosted,
         PuPurchaseOrders,
-        InItems;
+        InItems,
+        PuPurchaseOrderImei;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -91,6 +94,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
 
     public static final int POITEMID = AttributesEnum.Poitemid.index();
     public static final int POID = AttributesEnum.Poid.index();
@@ -136,8 +140,10 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
+    public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int PUPURCHASEORDERS = AttributesEnum.PuPurchaseOrders.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
+    public static final int PUPURCHASEORDERIMEI = AttributesEnum.PuPurchaseOrderImei.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -151,6 +157,7 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
     public static synchronized EntityDefImpl getDefinitionObject() {
         return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines");
     }
+
 
     /**
      * Gets the attribute value for Poitemid, using the alias name Poitemid.
@@ -857,6 +864,22 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtPosted, using the alias name txtPosted.
+     * @return the value of txtPosted
+     */
+    public String gettxtPosted() {
+        return (String) getAttributeInternal(TXTPOSTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPosted.
+     * @param value value to set the txtPosted
+     */
+    public void settxtPosted(String value) {
+        setAttributeInternal(TXTPOSTED, value);
+    }
+
+    /**
      * @return the associated entity PuPurchaseOrdersImpl.
      */
     public PuPurchaseOrdersImpl getPuPurchaseOrders() {
@@ -882,6 +905,14 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
      */
     public void setInItems(EntityImpl value) {
         setAttributeInternal(INITEMS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getPuPurchaseOrderImei() {
+        return (RowIterator) getAttributeInternal(PUPURCHASEORDERIMEI);
     }
 
 

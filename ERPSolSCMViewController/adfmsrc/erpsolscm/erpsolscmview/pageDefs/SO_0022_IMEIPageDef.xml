@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0022_IMEIPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PuPoLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPoLinesDetCRUDIterator"/>
+    <iterator Binds="PuPurchaseOrderImeiDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseOrderImeiDetCRUDIterator"/>
+    <searchRegion Binds="PuPurchaseOrderImeiDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="PuPurchaseOrderImeiDetCRUDQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PuPoLinesDetCRUDIterator" id="txtPosted">
+      <AttrNames>
+        <Item Value="txtPosted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPoLinesDetCRUDIterator" id="Poid">
+      <AttrNames>
+        <Item Value="Poid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPoLinesDetCRUDIterator" id="txtModelNo">
+      <AttrNames>
+        <Item Value="txtModelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <tree IterBinding="PuPurchaseOrderImeiDetCRUDIterator" id="PuPurchaseOrderImeiDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrderImeiVO"
+                      Name="PuPurchaseOrderImeiDetCRUD0">
+        <AttrNames>
+          <Item Value="ItemRefId"/>
+          <Item Value="Imei"/>
+          <Item Value="InvalidImei"/>
+          <Item Value="ErrorDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="PuPurchaseOrderImeiDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

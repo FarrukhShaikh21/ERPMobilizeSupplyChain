@@ -90,12 +90,13 @@
                           <af:outputLabel value="#{bindings.Poid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
-                          <af:inputText value="#{bindings.Productid.inputValue}" simple="true"
-                                        required="#{bindings.Productid.hints.mandatory}"
-                                        columns="#{bindings.Productid.hints.displayWidth}"
-                                        maximumLength="#{bindings.Productid.hints.precision}"
-                                        shortDesc="#{bindings.Productid.hints.tooltip}" id="it24" rendered="false">
-                            <f:validator binding="#{bindings.Productid.validator}"/>
+                          <af:inputText value="#{bindings.txtProductId.inputValue}"
+                                        label="#{bindings.txtProductId.hints.label}"
+                                        required="#{bindings.txtProductId.hints.mandatory}"
+                                        columns="#{bindings.txtProductId.hints.displayWidth}"
+                                        maximumLength="#{bindings.txtProductId.hints.precision}"
+                                        shortDesc="#{bindings.txtProductId.hints.tooltip}" id="it9" rendered="false">
+                            <f:validator binding="#{bindings.txtProductId.validator}"/>
                           </af:inputText>
                           <af:inputText value="#{bindings.Poid.inputValue}" label="#{bindings.Poid.hints.label}"
                                         required="#{bindings.Poid.hints.mandatory}"
@@ -379,14 +380,14 @@
                               rowSelection="single" fetchSize="#{bindings.PuPoLinesDetCRUD.rangeSize}" id="t2"
                               partialTriggers="::b7 ::b8" columnStretching="last">
                       <af:column id="c6">
-                        <af:button text="IMEI" id="b11" action="ACT-ERP-SO-0167-IMEI-SCAN">
+                        <af:button text="IMEI" id="b11" action="ACT-ERP-SO-0022-IMEI-SCAN">
                           <af:setActionListener from="#{bindings.Poid.inputValue}"
                                                 to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
-                          <af:setActionListener from="#{row.bindings.Productid.inputValue}"
+                          <af:setActionListener from="#{row.bindings.txtProductId.inputValue}"
                                                 to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>
                         </af:button>
                       </af:column>
-                      <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}" id="c1">
+                      <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}" id="c1" width="200">
                         <af:inputComboboxListOfValues id="txtModelNoId"
                                                       popupTitle="Search and Select: #{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}"
                                                       value="#{row.bindings.txtModelNo.inputValue}"
@@ -396,6 +397,17 @@
                                                       shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.tooltip}">
                           <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
                         </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.label}" id="c7" width="150">
+                        <af:inputText value="#{row.bindings.txtProductId.inputValue}"
+                                      label="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.label}"
+                                      required="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.mandatory}"
+                                      columns="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.displayWidth}"
+                                      maximumLength="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.precision}"
+                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.tooltip}" id="it6"
+                                      readOnly="true">
+                          <f:validator binding="#{row.bindings.txtProductId.validator}"/>
+                        </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.label}" id="c2">
                         <af:inputText value="#{row.bindings.OrderQty.inputValue}"

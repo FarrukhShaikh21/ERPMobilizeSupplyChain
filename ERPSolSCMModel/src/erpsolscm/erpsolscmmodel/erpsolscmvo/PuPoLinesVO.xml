@@ -333,10 +333,23 @@
     EntityAttrName="txtProductId"
     EntityUsage="PuPoLines"
     AliasName="TXT_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="txtPosted"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtPosted"
+    EntityUsage="PuPoLines"
+    AliasName="TXT_POSTED"/>
   <ViewLinkAccessor
     Name="InItemsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPoLinesLinesItemidLink"
     Type="oracle.jbo.Row"
     Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseOrderImeiVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPolinesPuPurchaaseOrderImeiPolineseqnoLink"
+    Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
