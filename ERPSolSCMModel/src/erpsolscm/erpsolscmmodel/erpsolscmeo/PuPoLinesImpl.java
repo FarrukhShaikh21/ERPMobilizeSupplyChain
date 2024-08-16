@@ -963,12 +963,16 @@ public class PuPoLinesImpl  extends ERPSolGlobalsEntityImpl {
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "PU_PO_LINES", "POID", getPoid());
             populateAttributeAsChanged(POITEMID, result);
         }
-         if (operation!=DML_UPDATE) {
+         if (operation!=DML_DELETE) {
+             System.out.println();
             populateAttributeAsChanged(UNITPRICEINFCURR, getUnitPriceInBcurr());
             populateAttributeAsChanged(GROSSAMOUNT, gettxtGrossAmount());
             populateAttributeAsChanged(NETAMOUNT, gettxtNetAmount());
             populateAttributeAsChanged(DEMANDQTY, getOrderQty());
-            populateAttributeAsChanged(CONFIRMEDQTY, getConfirmedQty());
+            populateAttributeAsChanged(CONFIRMEDQTY, getOrderQty());
+            populateAttributeAsChanged(ACTPRICEINBCURR, gettxtGrossAmount());
+            populateAttributeAsChanged(ACTPRICEINFCURR, gettxtGrossAmount());
+
 
 
            

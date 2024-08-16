@@ -182,6 +182,13 @@
     Name="PuPurchaseReturnLinesDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseReturnLinesVO"/>
   <ViewUsage
+    Name="PuPoLinesByItemPoIdVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPoLinesVO">
+    <ViewCriteriaUsage
+      Name="PuPoLinesByPoPolinesIdVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPoLinesVO.PuPoLinesByPoPolinesIdVC"/>
+  </ViewUsage>
+  <ViewUsage
     Name="PuPurchaseOrderImeiDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrderImeiVO"/>
   <ViewLinkUsage
@@ -295,7 +302,7 @@
   <ViewLinkUsage
     Name="PuPolinesPuPurchaaseOrderImeiPolineseqnoLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPolinesPuPurchaaseOrderImeiPolineseqnoLink"
-    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPoLinesDetCRUD"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPoLinesByItemPoIdVC"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPurchaseOrderImeiDetCRUD"
     Reversed="false"/>
 </AppModule>

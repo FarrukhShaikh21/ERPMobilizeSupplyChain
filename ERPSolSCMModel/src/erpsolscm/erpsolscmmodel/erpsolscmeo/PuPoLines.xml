@@ -718,6 +718,14 @@
       <Item
         Value="UnitPriceInFcurr"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.txtGrossAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="txtNetAmount"

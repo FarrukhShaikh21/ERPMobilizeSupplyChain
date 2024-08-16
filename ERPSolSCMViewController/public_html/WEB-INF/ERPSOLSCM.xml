@@ -267,6 +267,12 @@
     <view id="SO_0064_IMEI">
       <page>/SO_0064_IMEI.jsf</page>
     </view>
+    <method-call id="ExecuteWithParaPODetByPOIdProductid">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0022-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -660,7 +666,7 @@
       <from-activity-id>SO_0022</from-activity-id>
       <control-flow-case id="__113">
         <from-outcome>ACT-ERP-SO-0022-IMEI-SCAN</from-outcome>
-        <to-activity-id>SO_0022_IMEI</to-activity-id>
+        <to-activity-id>ExecuteWithParaPODetByPOIdProductid</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__116">
@@ -682,6 +688,13 @@
       <control-flow-case id="__124">
         <from-outcome>ERPSOLBACK</from-outcome>
         <to-activity-id>SO_0064</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__118">
+      <from-activity-id>ExecuteWithParaPODetByPOIdProductid</from-activity-id>
+      <control-flow-case id="__119">
+        <from-outcome>ACT-ERP-SO-0022-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0022_IMEI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

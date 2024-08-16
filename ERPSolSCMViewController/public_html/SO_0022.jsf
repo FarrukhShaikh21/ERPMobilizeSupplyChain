@@ -378,7 +378,8 @@
                               selectedRowKeys="#{bindings.PuPoLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.PuPoLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.PuPoLinesDetCRUD.rangeSize}" id="t2"
-                              partialTriggers="::b7 ::b8" columnStretching="last">
+                              partialTriggers="::b7 ::b8" columnStretching="last" autoHeightRows="5"
+                              scrollPolicy="page">
                       <af:column id="c6">
                         <af:button text="IMEI" id="b11" action="ACT-ERP-SO-0022-IMEI-SCAN">
                           <af:setActionListener from="#{bindings.Poid.inputValue}"
@@ -415,7 +416,8 @@
                                       required="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.mandatory}"
                                       columns="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.displayWidth}"
                                       maximumLength="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.precision}"
-                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.tooltip}" id="it1">
+                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.tooltip}" id="it1"
+                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.OrderQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.PuPoLinesDetCRUD.hints.OrderQty.format}"/>
@@ -427,7 +429,8 @@
                                       required="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.mandatory}"
                                       columns="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.displayWidth}"
                                       maximumLength="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.precision}"
-                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.tooltip}" id="it2">
+                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.tooltip}" id="it2"
+                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.UnitPriceInBcurr.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.PuPoLinesDetCRUD.hints.UnitPriceInBcurr.format}"/>
@@ -440,7 +443,7 @@
                                       columns="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.displayWidth}"
                                       maximumLength="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.precision}"
                                       shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.tooltip}" id="it3"
-                                      readOnly="true">
+                                      readOnly="true" partialTriggers="it1 it2">
                           <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.PuPoLinesDetCRUD.hints.txtGrossAmount.format}"/>

@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_POID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_PRODUCTID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -341,6 +349,67 @@
     EntityAttrName="txtPosted"
     EntityUsage="PuPoLines"
     AliasName="TXT_POSTED"/>
+  <ViewCriteria
+    Name="PuPoLinesByPoPolinesIdVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPoLinesVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PuPoLinesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Poid"
+        ViewAttribute="Poid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_POID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InItemsView"
+        ViewAttribute="InItemsView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="InItemsViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="InItemsViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Productid"
+              ViewAttribute="Productid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_PRODUCTID"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="InItemsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsPuPoLinesLinesItemidLink"
