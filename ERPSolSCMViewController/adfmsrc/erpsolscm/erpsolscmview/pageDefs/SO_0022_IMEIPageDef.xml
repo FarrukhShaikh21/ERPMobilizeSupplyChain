@@ -4,7 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="PuPoLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+    <iterator Binds="PuPoLinesByItemPoIdVC" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="PuPoLinesDetCRUDIterator"/>
     <iterator Binds="PuPurchaseOrderImeiDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="PuPurchaseOrderImeiDetCRUDIterator"/>
@@ -39,6 +39,7 @@
           <Item Value="Imei"/>
           <Item Value="InvalidImei"/>
           <Item Value="ErrorDescription"/>
+          <Item Value="BoxNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

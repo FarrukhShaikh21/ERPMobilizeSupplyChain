@@ -101,10 +101,21 @@
     EntityAttrName="Poseq"
     EntityUsage="PuPurchaseOrderImei"
     AliasName="POSEQ"/>
+  <ViewAttribute
+    Name="BoxNo"
+    PrecisionRule="true"
+    EntityAttrName="BoxNo"
+    EntityUsage="PuPurchaseOrderImei"
+    AliasName="BOX_NO"/>
   <ViewLinkAccessor
     Name="PuPoLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPolinesPuPurchaaseOrderImeiPolineseqnoLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <SortCriteria>
+    <Sort
+      Attribute="Poimeiseqno"
+      Ascending="false"/>
+  </SortCriteria>
 </ViewObject>

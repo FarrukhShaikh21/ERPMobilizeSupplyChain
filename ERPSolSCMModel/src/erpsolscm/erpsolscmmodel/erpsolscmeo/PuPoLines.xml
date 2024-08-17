@@ -706,8 +706,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    IsPersistent="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[(UnitPriceInBcurr==null?0:UnitPriceInBcurr) * (OrderQty==null?0:OrderQty)]]></TransientExpression>
     <Dependencies>
@@ -776,7 +776,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[PuPurchaseOrders?.Posted]]></TransientExpression>
+      trustMode="trusted"><![CDATA[PuPurchaseOrders?.Posted]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

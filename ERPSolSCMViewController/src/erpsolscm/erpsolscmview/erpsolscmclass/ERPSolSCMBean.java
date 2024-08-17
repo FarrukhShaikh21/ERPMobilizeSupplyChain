@@ -70,6 +70,7 @@ public class ERPSolSCMBean {
     String ERPSolReportName;
     String ERPSolSaleretid;
     String ERPIteratorName;
+    String ERPSolBoxNo;
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -1126,7 +1127,7 @@ public class ERPSolSCMBean {
 
         DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
         DCDataControl dc = bc.getDataControl();
-        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_PO_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','I','"+getERPSolProductId()+"'); end;";
+        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_PO_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','"+getERPSolBoxNo()+"','"+getERPSolProductId()+"'); end;";
         DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
         CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
         try {
@@ -1161,5 +1162,19 @@ public class ERPSolSCMBean {
     //        Row ERPsolrow=ERPSolvo.createRow();
     //        ERPsolrow.setAttribute("ImeiNo", message);
     //        ERPSolvo.insertRow(ERPsolrow);
+    }
+    
+    public void handleEnterEventPOBox(ClientEvent ce) {
+        String value = (String) ce.getParameters().get("fvalue");
+        System.out.println(value);
+        setERPSolBoxNo(value);
+    }
+
+    public void setERPSolBoxNo(String ERPSolBoxNo) {
+        this.ERPSolBoxNo = ERPSolBoxNo;
+    }
+
+    public String getERPSolBoxNo() {
+        return ERPSolBoxNo;
     }
 }

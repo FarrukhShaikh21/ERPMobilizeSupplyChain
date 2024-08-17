@@ -153,6 +153,26 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="PU_PURCHASE_ORDER_IMEI"/>
+  <Attribute
+    Name="BoxNo"
+    Precision="50"
+    ColumnName="BOX_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_ORDER_IMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei.BoxNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="PuPoLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPolinesPuPurchaaseOrderImeiPolineseqnoAssoc"
@@ -181,4 +201,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei.Polineseqno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>

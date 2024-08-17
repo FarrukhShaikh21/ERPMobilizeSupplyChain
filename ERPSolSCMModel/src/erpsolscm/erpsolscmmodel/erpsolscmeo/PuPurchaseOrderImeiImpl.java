@@ -32,6 +32,7 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
         ItemRefId,
         Polineseqno,
         Poseq,
+        BoxNo,
         PuPoLines;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -55,6 +56,7 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
     public static final int POIMEISEQNO = AttributesEnum.Poimeiseqno.index();
     public static final int INVALIDIMEI = AttributesEnum.InvalidImei.index();
     public static final int CREATEDBY = AttributesEnum.Createdby.index();
@@ -68,12 +70,20 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
     public static final int ITEMREFID = AttributesEnum.ItemRefId.index();
     public static final int POLINESEQNO = AttributesEnum.Polineseqno.index();
     public static final int POSEQ = AttributesEnum.Poseq.index();
+    public static final int BOXNO = AttributesEnum.BoxNo.index();
     public static final int PUPOLINES = AttributesEnum.PuPoLines.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public PuPurchaseOrderImeiImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei");
     }
 
     /**
@@ -285,6 +295,22 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for BoxNo, using the alias name BoxNo.
+     * @return the value of BoxNo
+     */
+    public String getBoxNo() {
+        return (String) getAttributeInternal(BOXNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BoxNo.
+     * @param value value to set the BoxNo
+     */
+    public void setBoxNo(String value) {
+        setAttributeInternal(BOXNO, value);
+    }
+
+    /**
      * @return the associated entity PuPoLinesImpl.
      */
     public PuPoLinesImpl getPuPoLines() {
@@ -298,6 +324,7 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(PUPOLINES, value);
     }
 
+
     /**
      * @param poimeiseqno key constituent
 
@@ -305,13 +332,6 @@ public class PuPurchaseOrderImeiImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer poimeiseqno) {
         return new Key(new Object[] { poimeiseqno });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrderImei");
     }
 
     /**
