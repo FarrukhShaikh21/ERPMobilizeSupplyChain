@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPoLinesVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_POID"
     Kind="viewcriteria"
@@ -420,5 +425,11 @@
     Name="PuPurchaseOrderImeiVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPolinesPuPurchaaseOrderImeiPolineseqnoLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseOrdersVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC00123039Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

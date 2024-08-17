@@ -104,5 +104,10 @@
         <Item Value="txtProductId"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doSupervisePurchaseOrder" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSupervisePurchaseOrder" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.PuPurchaseOrdersCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSupervisePurchaseOrder_ERPSolSCMAppModuleDataControl_PuPurchaseOrdersCRUD_doSupervisePurchaseOrder_result"/>
   </bindings>
 </pageDefinition>

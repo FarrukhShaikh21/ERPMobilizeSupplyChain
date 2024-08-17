@@ -70,7 +70,7 @@ public class ERPSolSCMBean {
     String ERPSolReportName;
     String ERPSolSaleretid;
     String ERPIteratorName;
-    String ERPSolBoxNo;
+    String ERPSolBoxNo="";
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -252,6 +252,17 @@ public class ERPSolSCMBean {
     public void doERPSolDialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
             OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSaleOrder");
+            binding.execute();
+            List ERPSolerrors = binding.getErrors();
+            if (ERPSolerrors.isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Transaction Is Supervised." ));
+            }
+        }
+    }
+    
+    public void doERPSolPODialogConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSupervisePurchaseOrder");
             binding.execute();
             List ERPSolerrors = binding.getErrors();
             if (ERPSolerrors.isEmpty()) {
@@ -1068,13 +1079,7 @@ public class ERPSolSCMBean {
         return ERPSolSaleretid;
     }
 
-    public static void main(String[] args) {
-        BigDecimal fcurr=new BigDecimal(2250);
-       BigDecimal discount=new BigDecimal(7.5);
-       discount=((fcurr.multiply(discount)).divide(new BigDecimal(100)));
-       System.out.println(Math.round(discount.doubleValue()) ); 
-    
-   }
+
     public String ERPSolGoToBack() {
     if (ERPSolGlobalViewBean.doIsERPSolTransactionDirty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Please Save/Undo Changes."));
@@ -1134,7 +1139,7 @@ public class ERPSolSCMBean {
                      cs.registerOutParameter(1, Types.VARCHAR);
                      cs.executeUpdate();
                      ERPSolPlsql=cs.getString(1);
-                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     if (ERPSolPlsql.contains("ERPSOLSUCCESS"))
                      {  
                      erpsoldbt.commit();
                      dc.getApplicationModule().findViewObject("PuPurchaseOrderImeiDetCRUD").executeQuery();
@@ -1151,17 +1156,12 @@ public class ERPSolSCMBean {
                     } catch (SQLException e) {
                     }
                 }
-    //        setERPSolImeiBox(null);
-    //        getERPSolImeiBoxText().setValue(null);
-    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
-        
-
-    //        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
-    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
-    //        ViewObject ERPSolvo=ib.getViewObject();
-    //        Row ERPsolrow=ERPSolvo.createRow();
-    //        ERPsolrow.setAttribute("ImeiNo", message);
-    //        ERPSolvo.insertRow(ERPsolrow);
+        if (ERPSolPlsql.contains(":Y")) {
+        String inputId = "it1"; //here it6 is id for inputtext in1st column.
+        FacesContext facesCtx=FacesContext.getCurrentInstance();
+        ExtendedRenderKitService service = Service.getRenderKitService(facesCtx, ExtendedRenderKitService.class);
+        service.addScript(facesCtx, "comp = AdfPage.PAGE.findComponent('"+inputId+"');\n" +"comp.focus(); comp.setValue(null)");      // javascript method is used
+        }
     }
     
     public void handleEnterEventPOBox(ClientEvent ce) {
@@ -1177,4 +1177,5 @@ public class ERPSolSCMBean {
     public String getERPSolBoxNo() {
         return ERPSolBoxNo;
     }
+    
 }

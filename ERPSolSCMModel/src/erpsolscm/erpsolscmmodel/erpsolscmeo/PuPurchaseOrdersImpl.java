@@ -58,7 +58,6 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         txtStoreName,
         txtSupplierName,
-        txtGrossAmount,
         txtSumGrossAmount,
         txtSumNetmount,
         txtSumQuantity,
@@ -66,7 +65,8 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
         AllLocations,
         AllStores,
         PuSuppliers;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -125,7 +125,6 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
-    public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTSUMGROSSAMOUNT = AttributesEnum.txtSumGrossAmount.index();
     public static final int TXTSUMNETMOUNT = AttributesEnum.txtSumNetmount.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
@@ -708,21 +707,6 @@ public class PuPurchaseOrdersImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTSUPPLIERNAME, value);
     }
 
-    /**
-     * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
-     * @return the value of txtGrossAmount
-     */
-    public BigDecimal gettxtGrossAmount() {
-        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtGrossAmount.
-     * @param value value to set the txtGrossAmount
-     */
-    public void settxtGrossAmount(BigDecimal value) {
-        setAttributeInternal(TXTGROSSAMOUNT, value);
-    }
 
     /**
      * Gets the attribute value for txtSumGrossAmount, using the alias name txtSumGrossAmount.

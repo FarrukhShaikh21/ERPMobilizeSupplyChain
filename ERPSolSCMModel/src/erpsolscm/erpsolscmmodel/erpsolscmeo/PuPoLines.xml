@@ -775,8 +775,7 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[PuPurchaseOrders?.Posted]]></TransientExpression>
+    <TransientExpression><![CDATA[PuPurchaseOrders?.Posted]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

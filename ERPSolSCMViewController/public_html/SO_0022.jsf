@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Poid.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogConfirm}" type="yesNo">
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolPODialogConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -43,10 +43,9 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button actionListener="#{bindings.doReadyForWarehouse.execute}" text="doReadyForWarehouse"
-                                   disabled="#{!bindings.doReadyForWarehouse.enabled}" id="b15" rendered="false"/>
-                        <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
-                                   disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
+                        <af:button actionListener="#{bindings.doSupervisePurchaseOrder.execute}"
+                                   text="doSupervisePurchaseOrder"
+                                   disabled="#{!bindings.doSupervisePurchaseOrder.enabled}" id="b10" rendered="false"/>
                         <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
                                    action="ACT-ERP-CLOSE-FORM-SCM" iconPosition="top"/>
                         <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"

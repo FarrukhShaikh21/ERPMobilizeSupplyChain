@@ -12,7 +12,15 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrdersVOImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.PuPurchaseOrdersVO"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.PuPurchaseOrdersVOClient"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrdersVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccAllPaymentTermsVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllPaymentTermsVO"
@@ -460,4 +468,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSupervisePurchaseOrder"
+      MethodName="doSupervisePurchaseOrder">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
