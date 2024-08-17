@@ -143,4 +143,10 @@
     EntityAttrName="Primeiseqno"
     EntityUsage="PuPurchaseReturnImei"
     AliasName="PRIMEISEQNO"/>
+  <ViewAttribute
+    Name="BoxNo"
+    PrecisionRule="true"
+    EntityAttrName="BoxNo"
+    EntityUsage="PuPurchaseReturnImei"
+    AliasName="BOX_NO"/>
 </ViewObject>
