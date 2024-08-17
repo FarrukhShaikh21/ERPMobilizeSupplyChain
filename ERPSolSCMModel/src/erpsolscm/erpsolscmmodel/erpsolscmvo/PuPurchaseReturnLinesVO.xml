@@ -255,4 +255,9 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseReturnImeiVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

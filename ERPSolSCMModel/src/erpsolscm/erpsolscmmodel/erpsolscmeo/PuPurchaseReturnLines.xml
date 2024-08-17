@@ -274,6 +274,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsPuPurchseReturnLinesItemidAssoc.PuPurchaseReturnLines"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PuPurchaseReturnImei"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc.PuPurchaseReturnImei"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc.PuPurchaseReturnLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkprlPrIdLineno"
     PrimaryKey="true">

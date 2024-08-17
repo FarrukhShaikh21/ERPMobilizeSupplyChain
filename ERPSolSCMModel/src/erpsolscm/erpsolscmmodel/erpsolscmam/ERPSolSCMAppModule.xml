@@ -191,6 +191,16 @@
   <ViewUsage
     Name="PuPurchaseOrderImeiDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrderImeiVO"/>
+  <ViewUsage
+    Name="PuPurchaseReturnLinesByPrItemRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseReturnLinesVO">
+    <ViewCriteriaUsage
+      Name="PuPurchaseReturnLinesProductPRIdVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseReturnLinesVO.PuPurchaseReturnLinesProductPRIdVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="PuPurchaseReturnImeiDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseReturnImeiVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -304,5 +314,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPolinesPuPurchaaseOrderImeiPolineseqnoLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPoLinesByItemPoIdVC"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPurchaseOrderImeiDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPurchaseReturnLinesByPrItemRO"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.PuPurchaseReturnImeiDetCRUD"
     Reversed="false"/>
 </AppModule>

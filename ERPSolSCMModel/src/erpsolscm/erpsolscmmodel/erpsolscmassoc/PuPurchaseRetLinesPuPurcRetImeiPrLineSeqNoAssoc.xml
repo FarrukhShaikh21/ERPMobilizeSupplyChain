@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="PuPurchaseReturnLines"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PuPurchaseReturnLines"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines.XpkprlPrIdLineno"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines.Prlineseqno"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="PuPurchaseReturnImei"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnImei">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PuPurchaseReturnImei"/>
+      <Attr Name="_foreignKey"
+        Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnImei.fk_PuPurchaseReturnImei"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnImei.Prlineseqno"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

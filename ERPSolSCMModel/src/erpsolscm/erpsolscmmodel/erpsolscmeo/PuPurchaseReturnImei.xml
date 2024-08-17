@@ -407,6 +407,13 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <AccessorAttribute
+    Name="PuPurchaseReturnLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc.PuPurchaseReturnLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoAssoc.PuPurchaseReturnImei"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLinesImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkPuPurchaseReturnImei"
     PrimaryKey="true">
@@ -415,6 +422,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnImei.PrIdImeiSno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_PuPurchaseReturnImei">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKPRL_PR_ID_LINENO"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_PU_PURCHASE_RETURN_IMEI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnImei.Prlineseqno"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

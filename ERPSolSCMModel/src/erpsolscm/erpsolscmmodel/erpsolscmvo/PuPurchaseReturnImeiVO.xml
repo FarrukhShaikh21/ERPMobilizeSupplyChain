@@ -149,4 +149,10 @@
     EntityAttrName="BoxNo"
     EntityUsage="PuPurchaseReturnImei"
     AliasName="BOX_NO"/>
+  <ViewLinkAccessor
+    Name="PuPurchaseReturnLinesVO"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuPurchaseRetLinesPuPurcRetImeiPrLineSeqNoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

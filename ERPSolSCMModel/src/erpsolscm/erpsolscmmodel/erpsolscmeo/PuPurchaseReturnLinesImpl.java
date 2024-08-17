@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -43,7 +44,8 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         txtModelNo,
         txtProductId,
         PuPurchaseReturn,
-        InItems;
+        InItems,
+        PuPurchaseReturnImei;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -90,6 +92,7 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int PUPURCHASERETURN = AttributesEnum.PuPurchaseReturn.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
+    public static final int PUPURCHASERETURNIMEI = AttributesEnum.PuPurchaseReturnImei.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -451,6 +454,14 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setInItems(EntityImpl value) {
         setAttributeInternal(INITEMS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getPuPurchaseReturnImei() {
+        return (RowIterator) getAttributeInternal(PUPURCHASERETURNIMEI);
     }
 
 

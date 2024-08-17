@@ -1499,7 +1499,7 @@
       <property
          name="fromOutcome">ERPSOLBACK</property>
       <property
-         name="sdm:polyPoints">T50,559.0244,1167.4224,581.0,1167.4224,B44</property>
+         name="sdm:polyPoints">T50,559.0244,1167.2471,581.0,1167.2471,B44</property>
    </ControlFlowCase>
    <View
       id="View135">
