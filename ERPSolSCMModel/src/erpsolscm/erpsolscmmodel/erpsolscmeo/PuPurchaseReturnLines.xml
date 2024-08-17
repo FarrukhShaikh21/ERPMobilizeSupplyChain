@@ -260,6 +260,27 @@
         Value="Itemid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtPosted"
+    Precision="80"
+    ColumnName="TXT_POSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PU_PURCHASE_RETURN_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[PuPurchaseReturn?.Posted]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseReturnLines.txtPosted_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="PuPurchaseReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.FkPrlPridAssoc"

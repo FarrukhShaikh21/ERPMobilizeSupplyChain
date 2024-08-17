@@ -43,6 +43,7 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         Prseqno,
         txtModelNo,
         txtProductId,
+        txtPosted,
         PuPurchaseReturn,
         InItems,
         PuPurchaseReturnImei;
@@ -90,6 +91,7 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int PRSEQNO = AttributesEnum.Prseqno.index();
     public static final int TXTMODELNO = AttributesEnum.txtModelNo.index();
     public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
+    public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int PUPURCHASERETURN = AttributesEnum.PuPurchaseReturn.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int PUPURCHASERETURNIMEI = AttributesEnum.PuPurchaseReturnImei.index();
@@ -426,6 +428,22 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtProductId(String value) {
         setAttributeInternal(TXTPRODUCTID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtPosted, using the alias name txtPosted.
+     * @return the value of txtPosted
+     */
+    public String gettxtPosted() {
+        return (String) getAttributeInternal(TXTPOSTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPosted.
+     * @param value value to set the txtPosted
+     */
+    public void settxtPosted(String value) {
+        setAttributeInternal(TXTPOSTED, value);
     }
 
     /**

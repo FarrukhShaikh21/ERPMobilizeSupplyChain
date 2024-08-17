@@ -9,6 +9,8 @@
     <searchRegion Binds="PuPurchaseReturnImeiDetCRUDIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="PuPurchaseReturnImeiDetCRUDQuery"/>
+    <iterator Binds="PuPurchaseReturnLinesByPrItemRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseReturnLinesByPrItemROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="PuPurchaseReturnImeiDetCRUDIterator" id="PuPurchaseReturnImeiDetCRUD">
@@ -23,5 +25,30 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="PuPurchaseReturnImeiDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doERPSolPORemoveBox" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolPORemoveBox" IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.PuPurchaseReturnImeiDetCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolPORemoveBox_ERPSolSCMAppModuleDataControl_PuPurchaseReturnImeiDetCRUD_doERPSolPORemoveBox_result"/>
+    <attributeValues IterBinding="PuPurchaseReturnLinesByPrItemROIterator" id="txtPosted">
+      <AttrNames>
+        <Item Value="txtPosted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnLinesByPrItemROIterator" id="txtModelNo">
+      <AttrNames>
+        <Item Value="txtModelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PuPurchaseReturnLinesByPrItemROIterator" id="PrId">
+      <AttrNames>
+        <Item Value="PrId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

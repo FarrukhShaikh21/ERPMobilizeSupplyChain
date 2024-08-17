@@ -374,20 +374,6 @@
     </Properties>
   </Attribute>
   <Attribute
-    Name="Primeiseqno"
-    ColumnName="PRIMEISEQNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="PU_PURCHASE_RETURN_IMEI">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="BoxNo"
     Precision="50"
     ColumnName="BOX_NO"

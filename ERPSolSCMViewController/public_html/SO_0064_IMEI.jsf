@@ -4,7 +4,7 @@
   <af:document title="SO_0167_IMEI.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:panelHeader text="Scan Sales OrderIMEI/BOX (#{bindings.Salesorderid.inputValue} (#{bindings.ModelNo.inputValue})) " id="ph1">
+      <af:panelHeader text="Scan Sales OrderIMEI/BOX (#{bindings.PrId.inputValue} (#{bindings.txtModelNo.inputValue})) " id="ph1">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
@@ -18,19 +18,18 @@
         <af:panelGridLayout id="pgl1">
           <af:gridRow id="gr3">
             <af:gridCell id="gc3">
-              <af:inputText value="#{bindings.ModelNo.inputValue}" label="#{bindings.ModelNo.hints.label}"
-                            required="#{bindings.ModelNo.hints.mandatory}"
-                            columns="#{bindings.ModelNo.hints.displayWidth}"
-                            maximumLength="#{bindings.ModelNo.hints.precision}"
-                            shortDesc="#{bindings.ModelNo.hints.tooltip}" id="it7" rendered="false">
-                <f:validator binding="#{bindings.ModelNo.validator}"/>
+              <af:inputText value="#{bindings.txtModelNo.inputValue}" label="#{bindings.txtModelNo.hints.label}"
+                            required="#{bindings.txtModelNo.hints.mandatory}"
+                            columns="#{bindings.txtModelNo.hints.displayWidth}"
+                            maximumLength="#{bindings.txtModelNo.hints.precision}"
+                            shortDesc="#{bindings.txtModelNo.hints.tooltip}" id="it11" rendered="false">
+                <f:validator binding="#{bindings.txtModelNo.validator}"/>
               </af:inputText>
-              <af:inputText value="#{bindings.Salesorderid.inputValue}" simple="true"
-                            required="#{bindings.Salesorderid.hints.mandatory}"
-                            columns="#{bindings.Salesorderid.hints.displayWidth}"
-                            maximumLength="#{bindings.Salesorderid.hints.precision}"
-                            shortDesc="#{bindings.Salesorderid.hints.tooltip}" id="it6" rendered="false">
-                <f:validator binding="#{bindings.Salesorderid.validator}"/>
+              <af:inputText value="#{bindings.PrId.inputValue}" label="#{bindings.PrId.hints.label}"
+                            required="#{bindings.PrId.hints.mandatory}" columns="#{bindings.PrId.hints.displayWidth}"
+                            maximumLength="#{bindings.PrId.hints.precision}" shortDesc="#{bindings.PrId.hints.tooltip}"
+                            id="it7" rendered="false">
+                <f:validator binding="#{bindings.PrId.validator}"/>
               </af:inputText>
             </af:gridCell>
           </af:gridRow>
@@ -50,7 +49,7 @@
                               contentStyle="text-transform:uppercase">
                   <af:clientListener type="keyPress" method="handleEnterEventBox"/>
                   <af:serverListener type="EnterEventBox"
-                                     method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventBox}"/>
+                                     method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventPRBox}"/>
                 </af:inputText>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:inputText id="it5" simple="true" placeholder="Scan IME Here" autoSubmit="true" label="dw"
@@ -58,7 +57,7 @@
                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}">
                                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"
-                                               method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventIMEI}"/>
+                                               method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventPRIMEI}"/>
                   <af:convertNumber groupingUsed="false"/>
                 </af:inputText>
               </af:panelGroupLayout>
@@ -76,7 +75,7 @@
                     </af:button>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
                                iconPosition="top"/>
-                    <af:button actionListener="#{bindings.doERPSolRemoveBox.execute}" text="Delete Selected Box IMEI"
+                    <af:button actionListener="#{bindings.doERPSolPORemoveBox.execute}" text="Delete Selected Box IMEI"
                                disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.txtPosted.inputValue=='Y'}" id="b5"
                                icon="#{resource['images:imgDelete.png']}"/>
                     <af:button actionListener="#{bindings.Delete.execute}" text="Delete Single IMEI"
@@ -94,7 +93,7 @@
                           rowSelection="single" fetchSize="#{bindings.PuPurchaseReturnImeiDetCRUD.rangeSize}"
                           filterModel="#{bindings.PuPurchaseReturnImeiDetCRUDQuery.queryDescriptor}"
                           queryListener="#{bindings.PuPurchaseReturnImeiDetCRUDQuery.processQuery}" filterVisible="true"
-                          varStatus="vs" id="t1">
+                          varStatus="vs" id="t1" partialTriggers="::b1">
                   <af:column sortProperty="#{bindings.PuPurchaseReturnImeiDetCRUD.hints.Itemid.name}" filterable="true"
                              headerText="#{bindings.PuPurchaseReturnImeiDetCRUD.hints.Itemid.label}" id="c1"
                              width="200">
