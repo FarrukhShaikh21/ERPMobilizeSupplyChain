@@ -325,7 +325,8 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="PU_PURCHASE_RETURN">
+    TableName="PU_PURCHASE_RETURN"
+    DefaultValue="2">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
