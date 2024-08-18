@@ -87,5 +87,15 @@
         <Item Value="txtSumQuantity"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doSupervisePurchaseReturn" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSupervisePurchaseReturn" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.PuPurchaseReturnCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSupervisePurchaseReturn_ERPSolSCMAppModuleDataControl_PuPurchaseReturnCRUD_doSupervisePurchaseReturn_result"/>
+    <attributeValues IterBinding="PuPurchaseReturnLinesDetCRUDIterator" id="txtProductId">
+      <AttrNames>
+        <Item Value="txtProductId"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

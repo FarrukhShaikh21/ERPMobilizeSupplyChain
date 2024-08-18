@@ -259,6 +259,18 @@ public class ERPSolSCMBean {
             }
         }
     }
+    public void doERPSolPRDialogConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSupervisePurchaseReturn");
+            binding.execute();
+            List ERPSolerrors = binding.getErrors();
+            if (ERPSolerrors.isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Transaction Is Supervised." ));
+            }
+        }
+    }
+    
+    
     
     public void doERPSolPODialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
@@ -1194,7 +1206,7 @@ public class ERPSolSCMBean {
                      if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
                      {  
                      erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("PuPurchaseReturnImeiDetCRUDIterator").executeQuery();
+                     dc.getApplicationModule().findViewObject("PuPurchaseReturnImeiDetCRUD").executeQuery();
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
@@ -1246,7 +1258,7 @@ public class ERPSolSCMBean {
                      if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
                      {  
                      erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("PuPurchaseReturnImeiDetCRUDIterator").executeQuery();
+                     dc.getApplicationModule().findViewObject("PuPurchaseReturnImeiDetCRUD").executeQuery();
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));

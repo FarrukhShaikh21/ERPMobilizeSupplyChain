@@ -548,7 +548,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">B50,-641.64844,111.07178,-580.3115,111.07178,T50</property>
+         name="sdm:polyPoints">B50,-641.64844,111.07176,-580.3115,111.07176,T50</property>
    </ControlFlowCase>
    <View
       id="View51">
@@ -1543,17 +1543,17 @@
       <property
          name="fromsrcid">__8</property>
       <property
-         name="sdm:polyPoints">R50,565.5,250.85059,565.5,776.44824,L50</property>
+         name="sdm:polyPoints">R50,591.5,250.85059,591.5,776.44824,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase139"
       from="View135"
-      to="View136">
+      to="MethodCall143">
       <property
          name="fromOutcome">ACT-ERP-SO-0064-IMEI-SCAN</property>
       <property
-         name="sdm:polyPoints">R46,925.7622,772.94824,925.7622,779.2471,L46</property>
+         name="sdm:polyPoints">B50,734.5,920.09766,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -1563,7 +1563,7 @@
       <property
          name="fromOutcome">ERPSOLBACK</property>
       <property
-         name="sdm:polyPoints">L54,918.7622,786.2471,918.7622,779.94824,R54</property>
+         name="sdm:polyPoints">L50,918.7622,782.7471,918.7622,776.44824,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall141">
@@ -1587,5 +1587,28 @@
          name="fromOutcome">ACT-ERP-SO-0022-IMEI-SCAN</property>
       <property
          name="sdm:polyPoints">L54,800.85645,1251.8965,800.85645,1344.7471,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall143">
+      <property
+         name="activityId">ExecuteWithParamPRLineByPRidProduct</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamPRLineByPRidProduct&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">920.44824</property>
+      <property
+         name="x">896.6885</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase144"
+      from="MethodCall143"
+      to="View136">
+      <property
+         name="fromOutcome">ACT-ERP-SO-0064-IMEI-SCAN</property>
+      <property
+         name="sdm:polyPoints">R50,1103.0244,920.09766,B50</property>
    </ControlFlowCase>
 </SDM>

@@ -273,6 +273,12 @@
         <fixed-outcome>ACT-ERP-SO-0022-IMEI-SCAN</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExecuteWithParamPRLineByPRidProduct">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0064-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -680,7 +686,7 @@
       <from-activity-id>SO_0064</from-activity-id>
       <control-flow-case id="__122">
         <from-outcome>ACT-ERP-SO-0064-IMEI-SCAN</from-outcome>
-        <to-activity-id>SO_0064_IMEI</to-activity-id>
+        <to-activity-id>ExecuteWithParamPRLineByPRidProduct</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__123">
@@ -695,6 +701,13 @@
       <control-flow-case id="__119">
         <from-outcome>ACT-ERP-SO-0022-IMEI-SCAN</from-outcome>
         <to-activity-id>SO_0022_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__125">
+      <from-activity-id>ExecuteWithParamPRLineByPRidProduct</from-activity-id>
+      <control-flow-case id="__126">
+        <from-outcome>ACT-ERP-SO-0064-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0064_IMEI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

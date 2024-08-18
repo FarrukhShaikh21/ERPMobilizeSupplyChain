@@ -161,13 +161,6 @@
     ColumnType="NUMBER"
     TableName="PU_PURCHASE_RETURN_LINES"/>
   <Attribute
-    Name="Poseqno"
-    ColumnName="POSEQNO"
-    SQLType="NUMERIC"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    TableName="PU_PURCHASE_RETURN_LINES"/>
-  <Attribute
     Name="Prlineseqno"
     ColumnName="PRLINESEQNO"
     SQLType="NUMERIC"
@@ -267,7 +260,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="PU_PURCHASE_RETURN_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression

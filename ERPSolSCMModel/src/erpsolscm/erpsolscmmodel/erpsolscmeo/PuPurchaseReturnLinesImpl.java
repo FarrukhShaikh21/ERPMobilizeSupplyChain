@@ -37,7 +37,6 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         Modifiedby,
         ModifiedDate,
         QtyIssued,
-        Poseqno,
         Prlineseqno,
         txtAmount,
         Prseqno,
@@ -47,7 +46,8 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         PuPurchaseReturn,
         InItems,
         PuPurchaseReturnImei;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -85,7 +85,6 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int MODIFIEDBY = AttributesEnum.Modifiedby.index();
     public static final int MODIFIEDDATE = AttributesEnum.ModifiedDate.index();
     public static final int QTYISSUED = AttributesEnum.QtyIssued.index();
-    public static final int POSEQNO = AttributesEnum.Poseqno.index();
     public static final int PRLINESEQNO = AttributesEnum.Prlineseqno.index();
     public static final int TXTAMOUNT = AttributesEnum.txtAmount.index();
     public static final int PRSEQNO = AttributesEnum.Prseqno.index();
@@ -334,21 +333,6 @@ public class PuPurchaseReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(QTYISSUED, value);
     }
 
-    /**
-     * Gets the attribute value for Poseqno, using the alias name Poseqno.
-     * @return the value of Poseqno
-     */
-    public Integer getPoseqno() {
-        return (Integer) getAttributeInternal(POSEQNO);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for Poseqno.
-     * @param value value to set the Poseqno
-     */
-    public void setPoseqno(Integer value) {
-        setAttributeInternal(POSEQNO, value);
-    }
 
     /**
      * Gets the attribute value for Prlineseqno, using the alias name Prlineseqno.
