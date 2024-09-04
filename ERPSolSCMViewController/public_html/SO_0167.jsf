@@ -429,7 +429,7 @@
                                         columns="#{bindings.ShippingAddress.hints.displayWidth}"
                                         maximumLength="#{bindings.ShippingAddress.hints.precision}"
                                         shortDesc="#{bindings.ShippingAddress.hints.tooltip}" id="it34" simple="true"
-                                        partialTriggers="customersAddressIdId">
+                                        partialTriggers="customersAddressIdId" readOnly="true">
                             <f:validator binding="#{bindings.ShippingAddress.validator}"/>
                           </af:inputText>
                         </af:gridCell>
