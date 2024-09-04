@@ -123,6 +123,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtSumQuantity,
         txtSumDiscount,
         txtSalesTerritory,
+        CustomersAddressId,
+        ShippingAddress,
         SoSalesOrderLinesView,
         AllCustomersView,
         AllStoresView,
@@ -255,6 +257,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTSUMDISCOUNT = AttributesEnum.txtSumDiscount.index();
     public static final int TXTSALESTERRITORY = AttributesEnum.txtSalesTerritory.index();
+    public static final int CUSTOMERSADDRESSID = AttributesEnum.CustomersAddressId.index();
+    public static final int SHIPPINGADDRESS = AttributesEnum.ShippingAddress.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
@@ -1806,6 +1810,38 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void settxtSalesTerritory(String value) {
         setAttributeInternal(TXTSALESTERRITORY, value);
+    }
+
+    /**
+     * Gets the attribute value for CUSTOMERS_ADDRESS_ID using the alias name CustomersAddressId.
+     * @return the CUSTOMERS_ADDRESS_ID
+     */
+    public Integer getCustomersAddressId() {
+        return (Integer) getAttributeInternal(CUSTOMERSADDRESSID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for CUSTOMERS_ADDRESS_ID using the alias name CustomersAddressId.
+     * @param value value to set the CUSTOMERS_ADDRESS_ID
+     */
+    public void setCustomersAddressId(Integer value) {
+        setAttributeInternal(CUSTOMERSADDRESSID, value);
+    }
+
+    /**
+     * Gets the attribute value for SHIPPING_ADDRESS using the alias name ShippingAddress.
+     * @return the SHIPPING_ADDRESS
+     */
+    public String getShippingAddress() {
+        return (String) getAttributeInternal(SHIPPINGADDRESS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SHIPPING_ADDRESS using the alias name ShippingAddress.
+     * @param value value to set the SHIPPING_ADDRESS
+     */
+    public void setShippingAddress(String value) {
+        setAttributeInternal(SHIPPINGADDRESS, value);
     }
 
     /**

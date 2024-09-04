@@ -1456,6 +1456,27 @@ return true;]]></validation:TransientExpression>
         Value="Salespersonid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="CustomersAddressId"
+    Precision="10"
+    Scale="0"
+    ColumnName="CUSTOMERS_ADDRESS_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_ORDER"/>
+  <Attribute
+    Name="ShippingAddress"
+    Precision="1000"
+    ColumnName="SHIPPING_ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_ORDER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
@@ -1578,7 +1599,6 @@ return true;]]></validation:TransientExpression>
     OperandType="EXPR"
     Inverse="false">
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[Customerid!=null]]></validation:OnCondition>
     <validation:MsgIds>
       <validation:Item
@@ -1587,11 +1607,9 @@ return true;]]></validation:TransientExpression>
     <validation:ResExpressions
       Name="SoSalesOrderStopOnAgeing_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
     </validation:ResExpressions>
-    <validation:TransientExpression
-      trustMode="trusted"><![CDATA[AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_CUSTOMERID", (Customerid==null?"-":Customerid));
+    <validation:TransientExpression><![CDATA[AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_CUSTOMERID", (Customerid==null?"-":Customerid));
 AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
 AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
 AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_SALESPERSONID", Salespersonid==null?"-1":Salespersonid);

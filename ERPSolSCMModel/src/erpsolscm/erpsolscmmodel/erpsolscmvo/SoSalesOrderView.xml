@@ -958,6 +958,18 @@
     EntityAttrName="txtSalesTerritory"
     EntityUsage="SoSalesOrder"
     AliasName="TXT_SALES_TERRITORY"/>
+  <ViewAttribute
+    Name="CustomersAddressId"
+    PrecisionRule="true"
+    EntityAttrName="CustomersAddressId"
+    EntityUsage="SoSalesOrder"
+    AliasName="CUSTOMERS_ADDRESS_ID"/>
+  <ViewAttribute
+    Name="ShippingAddress"
+    PrecisionRule="true"
+    EntityAttrName="ShippingAddress"
+    EntityUsage="SoSalesOrder"
+    AliasName="SHIPPING_ADDRESS"/>
   <ViewCriteria
     Name="SoSalesOrderFindVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"

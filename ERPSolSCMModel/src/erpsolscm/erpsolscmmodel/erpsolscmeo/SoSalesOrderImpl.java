@@ -121,6 +121,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtLocationName,
         txtApplyCreditlimit,
         txtSalesTerritory,
+        CustomersAddressId,
+        ShippingAddress,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
@@ -249,6 +251,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTAPPLYCREDITLIMIT = AttributesEnum.txtApplyCreditlimit.index();
     public static final int TXTSALESTERRITORY = AttributesEnum.txtSalesTerritory.index();
+    public static final int CUSTOMERSADDRESSID = AttributesEnum.CustomersAddressId.index();
+    public static final int SHIPPINGADDRESS = AttributesEnum.ShippingAddress.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -1738,6 +1742,38 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for CustomersAddressId, using the alias name CustomersAddressId.
+     * @return the value of CustomersAddressId
+     */
+    public Integer getCustomersAddressId() {
+        return (Integer) getAttributeInternal(CUSTOMERSADDRESSID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CustomersAddressId.
+     * @param value value to set the CustomersAddressId
+     */
+    public void setCustomersAddressId(Integer value) {
+        setAttributeInternal(CUSTOMERSADDRESSID, value);
+    }
+
+    /**
+     * Gets the attribute value for ShippingAddress, using the alias name ShippingAddress.
+     * @return the value of ShippingAddress
+     */
+    public String getShippingAddress() {
+        return (String) getAttributeInternal(SHIPPINGADDRESS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ShippingAddress.
+     * @param value value to set the ShippingAddress
+     */
+    public void setShippingAddress(String value) {
+        setAttributeInternal(SHIPPINGADDRESS, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesOrderLines() {
@@ -1868,6 +1904,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public RowSet getAccVwFuncStopSaleLineOnAgingQVO() {
         return (RowSet) getAttributeInternal(ACCVWFUNCSTOPSALELINEONAGINGQVO);
     }
+
 
     /**
      * @param salesorderseq key constituent
