@@ -129,6 +129,20 @@
     Name="AccVWYesNoQVO"
     ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCustomersAddressVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersAddressVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomersAddressByCustomerIdVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersAddressVO.AllCustomersAddressByCustomerIdVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -250,6 +264,29 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCustomersAddressId"
+    ListVOName="AccAllCustomersAddressVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomersAddressId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ShippingAddress"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomersAddressId"/>
+      <Item Value="Address"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CityName"/>
+      <Item Value="Address"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -963,7 +1000,15 @@
     PrecisionRule="true"
     EntityAttrName="CustomersAddressId"
     EntityUsage="SoSalesOrder"
-    AliasName="CUSTOMERS_ADDRESS_ID"/>
+    AliasName="CUSTOMERS_ADDRESS_ID"
+    LOVName="LovCustomersAddressId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ShippingAddress"
     PrecisionRule="true"

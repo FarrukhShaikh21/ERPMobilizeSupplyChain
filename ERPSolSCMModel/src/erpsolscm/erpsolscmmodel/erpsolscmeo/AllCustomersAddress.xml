@@ -17,7 +17,7 @@
     Scale="0"
     ColumnName="CUSTOMERS_ADDRESS_ID"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS_ADDRESS"
     PrimaryKey="true"/>
@@ -59,6 +59,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CityName"
@@ -115,7 +121,7 @@
     IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS_ADDRESS"/>
   <Key

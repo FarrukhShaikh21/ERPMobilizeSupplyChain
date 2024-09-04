@@ -203,5 +203,12 @@
         <Item Value="Divid"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovCustomersAddressId"
+                  id="CustomersAddressId"/>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="ShippingAddress">
+      <AttrNames>
+        <Item Value="ShippingAddress"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_CUSTOMERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="AllCustomersAddress"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersAddress"/>
@@ -77,4 +81,40 @@
     EntityAttrName="CreatedDate"
     EntityUsage="AllCustomersAddress"
     AliasName="CREATED_DATE"/>
+  <ViewCriteria
+    Name="AllCustomersAddressByCustomerIdVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersAddressVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllCustomersAddressVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Customerid"
+        ViewAttribute="Customerid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_CUSTOMERID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

@@ -400,6 +400,40 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
+                      <af:gridRow id="gr16">
+                        <af:gridCell id="gc33" width="15%" valign="middle">
+                          <af:outputLabel value="#{bindings.CustomersAddressId.hints.label}" id="ol13"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc34" width="35%">
+                          <af:inputComboboxListOfValues id="customersAddressIdId"
+                                                        popupTitle="Search and Select: #{bindings.CustomersAddressId.hints.label}"
+                                                        value="#{bindings.CustomersAddressId.inputValue}"
+                                                        label="#{bindings.CustomersAddressId.hints.label}"
+                                                        model="#{bindings.CustomersAddressId.listOfValuesModel}"
+                                                        required="#{bindings.CustomersAddressId.hints.mandatory}"
+                                                        columns="#{bindings.CustomersAddressId.hints.displayWidth}"
+                                                        shortDesc="#{bindings.CustomersAddressId.hints.tooltip}"
+                                                        simple="true" autoSubmit="true"
+                                                        partialTriggers="txtCustomerNameId">
+                            <f:validator binding="#{bindings.CustomersAddressId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomersAddressId.format}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                        <af:gridCell id="gc35" width="15%" valign="middle">
+                          <af:outputLabel value="#{bindings.ShippingAddress.hints.label}" id="ol12"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc36" width="35%">
+                          <af:inputText value="#{bindings.ShippingAddress.inputValue}"
+                                        label="#{bindings.ShippingAddress.hints.label}"
+                                        required="#{bindings.ShippingAddress.hints.mandatory}"
+                                        columns="#{bindings.ShippingAddress.hints.displayWidth}"
+                                        maximumLength="#{bindings.ShippingAddress.hints.precision}"
+                                        shortDesc="#{bindings.ShippingAddress.hints.tooltip}" id="it34" simple="true"
+                                        partialTriggers="customersAddressIdId">
+                            <f:validator binding="#{bindings.ShippingAddress.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
                       <af:gridRow height="30px" marginBottom="5px" id="gr9">
                         <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
