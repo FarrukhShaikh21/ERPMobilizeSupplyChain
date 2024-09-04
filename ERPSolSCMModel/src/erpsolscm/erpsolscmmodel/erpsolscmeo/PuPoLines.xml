@@ -194,6 +194,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.UnitPriceInFcurr_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -210,6 +212,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPoLines.UnitPriceInBcurr_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

@@ -387,15 +387,17 @@
                                                 to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>
                         </af:button>
                       </af:column>
-                      <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}" id="c1" width="200">
+                      <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}" id="c1" width="300">
                         <af:inputComboboxListOfValues id="txtModelNoId"
                                                       popupTitle="Search and Select: #{bindings.PuPoLinesDetCRUD.hints.txtModelNo.label}"
                                                       value="#{row.bindings.txtModelNo.inputValue}"
                                                       model="#{row.bindings.txtModelNo.listOfValuesModel}"
                                                       required="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.mandatory}"
                                                       columns="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.displayWidth}"
-                                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.tooltip}">
+                                                      shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtModelNo.tooltip}"
+                                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.label}" id="c7" width="150">
@@ -405,7 +407,7 @@
                                       columns="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.displayWidth}"
                                       maximumLength="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.precision}"
                                       shortDesc="#{bindings.PuPoLinesDetCRUD.hints.txtProductId.tooltip}" id="it6"
-                                      readOnly="true">
+                                      readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.txtProductId.validator}"/>
                         </af:inputText>
                       </af:column>
