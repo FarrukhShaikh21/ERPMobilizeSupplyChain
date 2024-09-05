@@ -117,4 +117,53 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewCriteria
+    Name="AllCustomersAddressFindVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersAddressVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllCustomersAddressVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="AllCustomersAddressVOCriteria_AllCustomersAddressVOCriteria_row_0_AddressType"
+        ViewAttribute="AddressType"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CityName"
+        ViewAttribute="CityName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactPerson"
+        ViewAttribute="ContactPerson"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

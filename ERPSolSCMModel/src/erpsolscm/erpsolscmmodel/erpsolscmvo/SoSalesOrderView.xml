@@ -285,8 +285,8 @@
       <Item Value="Address"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CityName"/>
       <Item Value="Address"/>
+      <Item Value="CityName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

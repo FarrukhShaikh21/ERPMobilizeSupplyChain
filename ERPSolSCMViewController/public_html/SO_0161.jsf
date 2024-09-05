@@ -391,7 +391,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}" id="c3"
-                                 width="200">
+                                 width="300">
                         <af:inputComboboxListOfValues id="modelNoId"
                                                       popupTitle="Search and Select: #{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}"
                                                       value="#{row.bindings.ModelNo.inputValue}"
@@ -399,7 +399,7 @@
                                                       required="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.mandatory}"
                                                       columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.displayWidth}"
                                                       shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.tooltip}"
-                                                      autoSubmit="true">
+                                                      autoSubmit="true" contentStyle="width:100%">
                           <f:validator binding="#{row.bindings.ModelNo.validator}"/>
                           <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>

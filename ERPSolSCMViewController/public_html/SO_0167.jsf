@@ -404,34 +404,31 @@
                         <af:gridCell id="gc33" width="15%" valign="middle">
                           <af:outputLabel value="#{bindings.CustomersAddressId.hints.label}" id="ol13"/>
                         </af:gridCell>
-                        <af:gridCell id="gc34" width="35%">
-                          <af:inputComboboxListOfValues id="customersAddressIdId"
-                                                        popupTitle="Search and Select: #{bindings.CustomersAddressId.hints.label}"
-                                                        value="#{bindings.CustomersAddressId.inputValue}"
-                                                        label="#{bindings.CustomersAddressId.hints.label}"
-                                                        model="#{bindings.CustomersAddressId.listOfValuesModel}"
-                                                        required="#{bindings.CustomersAddressId.hints.mandatory}"
-                                                        columns="#{bindings.CustomersAddressId.hints.displayWidth}"
-                                                        shortDesc="#{bindings.CustomersAddressId.hints.tooltip}"
-                                                        simple="true" autoSubmit="true"
-                                                        partialTriggers="txtCustomerNameId">
-                            <f:validator binding="#{bindings.CustomersAddressId.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomersAddressId.format}"/>
-                          </af:inputComboboxListOfValues>
-                        </af:gridCell>
-                        <af:gridCell id="gc35" width="15%" valign="middle">
-                          <af:outputLabel value="#{bindings.ShippingAddress.hints.label}" id="ol12"/>
-                        </af:gridCell>
-                        <af:gridCell id="gc36" width="35%">
-                          <af:inputText value="#{bindings.ShippingAddress.inputValue}"
-                                        label="#{bindings.ShippingAddress.hints.label}"
-                                        required="#{bindings.ShippingAddress.hints.mandatory}"
-                                        columns="#{bindings.ShippingAddress.hints.displayWidth}"
-                                        maximumLength="#{bindings.ShippingAddress.hints.precision}"
-                                        shortDesc="#{bindings.ShippingAddress.hints.tooltip}" id="it34" simple="true"
-                                        partialTriggers="customersAddressIdId" readOnly="true">
-                            <f:validator binding="#{bindings.ShippingAddress.validator}"/>
-                          </af:inputText>
+                        <af:gridCell id="gc34" width="35%" columnSpan="3" halign="stretch">
+                          <af:panelGroupLayout id="pgl10" layout="horizontal" styleClass="AFStretchWidth">
+                            <af:inputComboboxListOfValues id="customersAddressIdId"
+                                                          popupTitle="Search and Select: #{bindings.CustomersAddressId.hints.label}"
+                                                          value="#{bindings.CustomersAddressId.inputValue}"
+                                                          label="#{bindings.CustomersAddressId.hints.label}"
+                                                          model="#{bindings.CustomersAddressId.listOfValuesModel}"
+                                                          required="#{bindings.CustomersAddressId.hints.mandatory}"
+                                                          columns="#{bindings.CustomersAddressId.hints.displayWidth}"
+                                                          shortDesc="#{bindings.CustomersAddressId.hints.tooltip}"
+                                                          simple="true" autoSubmit="true"
+                                                          partialTriggers="txtCustomerNameId" contentStyle="width:50px">
+                              <f:validator binding="#{bindings.CustomersAddressId.validator}"/>
+                              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomersAddressId.format}"/>
+                            </af:inputComboboxListOfValues>
+                            <af:inputText value="#{bindings.ShippingAddress.inputValue}"
+                                          label="#{bindings.ShippingAddress.hints.label}"
+                                          required="#{bindings.ShippingAddress.hints.mandatory}"
+                                          columns="#{bindings.ShippingAddress.hints.displayWidth}"
+                                          maximumLength="#{bindings.ShippingAddress.hints.precision}"
+                                          shortDesc="#{bindings.ShippingAddress.hints.tooltip}" id="it34" simple="true"
+                                          partialTriggers="customersAddressIdId" readOnly="true">
+                              <f:validator binding="#{bindings.ShippingAddress.validator}"/>
+                            </af:inputText>
+                          </af:panelGroupLayout>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" marginBottom="5px" id="gr9">
@@ -541,7 +538,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}" id="c3"
-                                 width="200">
+                                 width="300">
                         <af:inputComboboxListOfValues id="txtModelNoId"
                                                       popupTitle="Search and Select: #{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}"
                                                       value="#{row.bindings.txtModelNo.inputValue}"
@@ -549,7 +546,7 @@
                                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.mandatory}"
                                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.displayWidth}"
                                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.tooltip}"
-                                                      autoSubmit="true">
+                                                      autoSubmit="true" contentStyle="width:100%">
                           <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
                           <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
