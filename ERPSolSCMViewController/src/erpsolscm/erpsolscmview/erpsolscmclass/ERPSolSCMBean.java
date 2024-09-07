@@ -861,6 +861,105 @@ public class ERPSolSCMBean {
         return null;
     }
     
+    
+    public String doERPSolPOExecuteWarehouse() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("PurchaseInvoice");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("PurchaseInvoice", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("PurchaseInvoice", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"POWAREHOUSE";
+        vo.executeQuery();    
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPSalesorderid       =(AttributeBinding)ERPSolbc.getControlBinding("Poid");
+        //AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+    //        System.out.println("select ISSUENO  FROM IN_ISSUED_ITEMS a where a.Issuedoctypeid='SO' and a.Source_Doc_Ref='"+ERPSalesorderid.getInputValue()+"'");
+    //        vo.remove();
+    //        vo=am.createViewObjectFromQueryStmt("QVOSaleInvoice", "select ISSUENO  FROM IN_ISSUED_ITEMS a where a.Issuedoctypeid='SO' and a.Source_Doc_Ref='"+ERPSalesorderid.getInputValue()+"'");
+        System.out.println("C");
+        vo.executeQuery();
+        System.out.println("d");
+
+        String reportParameter="";
+        System.out.println("e");
+
+        
+        //reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="POID="+ERPSalesorderid.getInputValue();
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
+    
+    public String doERPSolExecutePurchaseInvoice() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOPurchaseInvoice");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOPurchaseInvoice", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOPurchaseInvoice", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"PURCHASE_INVOICE";
+        vo.executeQuery();    
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPSalesorderid       =(AttributeBinding)ERPSolbc.getControlBinding("Poid");
+        //AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOPurchaseInvoice", "select rnoteno  FROM IN_RECEIVED_ITEMS a where a.recvdoctypeid='POL' and a.source_doc_ref='"+ERPSalesorderid.getInputValue()+"'");
+        
+        vo.executeQuery();
+        
+        String reportParameter="";
+        String ERPSolIssueno=vo.first().getAttribute(0).toString();
+        //reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&P_RNOTENO="+ERPSolIssueno;
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
+    
     public String doERPSolExecuteSaleReturn() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesReturnCRUDIterator");
