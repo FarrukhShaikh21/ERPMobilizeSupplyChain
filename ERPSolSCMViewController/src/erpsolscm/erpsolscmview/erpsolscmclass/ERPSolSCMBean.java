@@ -4,6 +4,13 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 
 import erpsolglob.erpsolglobview.erpclass.ERPSolGlobalViewBean;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import java.io.InputStream;
+
+import java.io.InputStreamReader;
+
 import java.math.BigDecimal;
 
 import java.sql.CallableStatement;
@@ -18,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import java.util.StringTokenizer;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
@@ -28,6 +37,7 @@ import oracle.adf.model.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.OperationBinding;
+import oracle.adf.model.adapter.dataformat.csv.CSVParser;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -47,6 +57,7 @@ import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
 
+import org.apache.myfaces.trinidad.model.UploadedFile;
 import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
 import org.apache.myfaces.trinidad.util.Service;
 
@@ -71,6 +82,11 @@ public class ERPSolSCMBean {
     String ERPSolSaleretid;
     String ERPIteratorName;
     String ERPSolBoxNo="";
+    private String filename;
+     private long filesize;
+     private String filecontents;
+     private String filetype;
+    private UploadedFile ERPuploadedFile;
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -1383,4 +1399,109 @@ public class ERPSolSCMBean {
     //        ERPsolrow.setAttribute("ImeiNo", message);
     //        ERPSolvo.insertRow(ERPsolrow);
     }
+
+
+    public void setERPuploadedFile(UploadedFile ERPuploadedFile) {
+        this.ERPuploadedFile = ERPuploadedFile;
+        this.filename = ERPuploadedFile.getFilename();
+                this.filesize = ERPuploadedFile.getLength();
+                this.filetype = ERPuploadedFile.getContentType();
+                try {
+                    parseFile(ERPuploadedFile.getInputStream());
+                } catch (IOException e) {
+                    // TODO
+                }
+    }
+
+    public UploadedFile getERPuploadedFile() {
+        return ERPuploadedFile;
+    }
+    
+    public void parseFile(java.io.InputStream file) {
+
+    BufferedReader reader = new BufferedReader(new InputStreamReader(file));
+
+    String strLine = "";
+
+    StringTokenizer st = null;
+
+    int lineNumber = 0, tokenNumber = 0;
+
+    Row rw = null;
+
+    //read comma separated file line by line
+
+    try
+
+    {
+
+    while ((strLine = reader.readLine()) != null)
+
+    {
+
+    lineNumber++;
+
+    // create a new row skip the header (header has linenumber 1)
+
+    if (lineNumber>1) {
+
+    
+
+    }
+
+     
+
+    //break comma separated line using ","
+
+    st = new StringTokenizer(strLine, ",");
+
+    while (st.hasMoreTokens())
+
+    {
+
+    //display csv values
+
+    tokenNumber++;
+
+    String theToken = st.nextToken();
+
+    System.out.println("Line # " + lineNumber + ", Token # " +tokenNumber +", Token : " + theToken);
+
+    if (lineNumber>1 || 1==1){
+    // set Attribute Values
+    switch (tokenNumber) {
+    case 1: System.out.println("BOX"+theToken);
+    case 2: System.out.println("IMEI"+theToken);
+    
+    }
+
+    }
+
+    }
+    //reset token number
+    tokenNumber = 0;
+
+    }
+
+    }
+
+    catch (IOException e) {
+
+    // TODO add more
+
+   
+    }
+
+    catch (Exception e) {
+
+    FacesContext fctx = FacesContext.getCurrentInstance();
+
+    fctx.addMessage( null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+
+    "Data Error in Uploaded file", e.getMessage()));
+
+    }
+
+    }
+
 }

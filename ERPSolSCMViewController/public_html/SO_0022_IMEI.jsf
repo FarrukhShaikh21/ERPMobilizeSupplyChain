@@ -3,7 +3,7 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="SO_0022_IMEI.jsf" id="d1">
     <af:messages id="m1"/>
-    <af:form id="f1">
+    <af:form id="f1" usesUpload="true">
       <af:panelHeader text="Scan Purchase OrderIMEI (#{bindings.Poid.inputValue} (#{bindings.txtModelNo.inputValue})) " id="ph1">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
@@ -36,13 +36,6 @@
           <af:gridRow marginTop="5px" height="auto" id="gr1">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
               <af:panelGroupLayout id="pgl2" layout="horizontal">
-                <af:inputText value="#{bindings.txtPosted.inputValue}" simple="true"
-                              required="#{bindings.txtPosted.hints.mandatory}"
-                              columns="#{bindings.txtPosted.hints.displayWidth}"
-                              maximumLength="#{bindings.txtPosted.hints.precision}"
-                              shortDesc="#{bindings.txtPosted.hints.tooltip}" id="it8" rendered="false">
-                  <f:validator binding="#{bindings.txtPosted.validator}"/>
-                </af:inputText>
                 <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan Box Here" autoSubmit="true"
                               clientComponent="true"
                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}"
@@ -60,6 +53,15 @@
                                                method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventPOIMEI}"/>
                   <af:convertNumber groupingUsed="false"/>
                 </af:inputText>
+                <af:inputText value="#{bindings.txtPosted.inputValue}" simple="true"
+                              required="#{bindings.txtPosted.hints.mandatory}"
+                              columns="#{bindings.txtPosted.hints.displayWidth}"
+                              maximumLength="#{bindings.txtPosted.hints.precision}"
+                              shortDesc="#{bindings.txtPosted.hints.tooltip}" id="it8" rendered="false">
+                  <f:validator binding="#{bindings.txtPosted.validator}"/>
+                </af:inputText>
+                <af:inputFile label="Upload File" id="if1"
+                              value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPuploadedFile}" autoSubmit="true"/>
               </af:panelGroupLayout>
             </af:gridCell>
           </af:gridRow>
