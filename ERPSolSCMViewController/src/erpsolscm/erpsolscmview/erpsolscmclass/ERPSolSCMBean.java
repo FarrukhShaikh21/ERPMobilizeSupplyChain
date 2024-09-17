@@ -1445,16 +1445,6 @@ public class ERPSolSCMBean {
     lineNumber++;
     rw=vo.createRow();
 
-    // create a new row skip the header (header has linenumber 1)
-
-    if (lineNumber>1) {
-
-    
-
-    }
-
-     
-
     //break comma separated line using ","
 
     st = new StringTokenizer(strLine, ",");
@@ -1505,7 +1495,7 @@ public class ERPSolSCMBean {
     "Data Error in Uploaded file", e.getMessage()));
 
     }
-
+    vo.getApplicationModule().getTransaction().commit();
     }
 
 }
