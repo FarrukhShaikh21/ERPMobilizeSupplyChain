@@ -61,7 +61,8 @@
                   <f:validator binding="#{bindings.txtPosted.validator}"/>
                 </af:inputText>
                 <af:inputFile label="Upload File" id="if1"
-                              value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPuploadedFile}" autoSubmit="true"/>
+                              value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPuploadedFile}" autoSubmit="true"
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}"/>
               </af:panelGroupLayout>
             </af:gridCell>
           </af:gridRow>

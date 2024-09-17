@@ -1402,7 +1402,7 @@ public class ERPSolSCMBean {
 
 
     public void setERPuploadedFile(UploadedFile ERPuploadedFile) {
-        this.ERPuploadedFile = ERPuploadedFile;
+//        this.ERPuploadedFile = ERPuploadedFile;
         this.filename = ERPuploadedFile.getFilename();
                 this.filesize = ERPuploadedFile.getLength();
                 this.filetype = ERPuploadedFile.getContentType();
@@ -1428,8 +1428,11 @@ public class ERPSolSCMBean {
     int lineNumber = 0, tokenNumber = 0;
 
     Row rw = null;
+    DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+    DCIteratorBinding ib =(DCIteratorBinding) bc.get("PuPurchaseOrderImeiDetCRUDIterator");
+    ViewObject vo=ib.getViewObject();
 
-    //read comma separated file line by line
+        //read comma separated file line by line
 
     try
 
@@ -1440,6 +1443,7 @@ public class ERPSolSCMBean {
     {
 
     lineNumber++;
+    rw=vo.createRow();
 
     // create a new row skip the header (header has linenumber 1)
 
@@ -1470,9 +1474,8 @@ public class ERPSolSCMBean {
     if (lineNumber>1 || 1==1){
     // set Attribute Values
     switch (tokenNumber) {
-    case 1: System.out.println("BOX"+theToken);
-    case 2: System.out.println("IMEI"+theToken);
-    
+    case 1: rw.setAttribute("BoxNo",theToken);
+    case 2: rw.setAttribute("Imei",theToken);
     }
 
     }
@@ -1480,6 +1483,7 @@ public class ERPSolSCMBean {
     }
     //reset token number
     tokenNumber = 0;
+    vo.insertRow(rw);
 
     }
 

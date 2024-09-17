@@ -41,7 +41,6 @@
   </Attribute>
   <Attribute
     Name="Createdby"
-    IsNotNull="true"
     Precision="20"
     ColumnName="CREATEDBY"
     SQLType="VARCHAR"
@@ -54,7 +53,6 @@
   </Attribute>
   <Attribute
     Name="CreatedDate"
-    IsNotNull="true"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
