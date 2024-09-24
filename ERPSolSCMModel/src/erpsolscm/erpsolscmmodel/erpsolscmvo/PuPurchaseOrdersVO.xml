@@ -445,6 +445,111 @@
     EntityAttrName="txtSumGrossAmount"
     EntityUsage="PuPurchaseOrders"
     AliasName="TXT_SUM_GROSS_AMOUNT"/>
+  <ViewCriteria
+    Name="PuPurchaseOrdersVOCriteriaVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrdersVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="PuPurchaseOrdersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Poid"
+        ViewAttribute="Poid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Locationid"
+        ViewAttribute="Locationid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Supplierid"
+        ViewAttribute="Supplierid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ReceStoreid"
+        ViewAttribute="ReceStoreid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PoDate"
+        ViewAttribute="PoDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SuppRefno"
+        ViewAttribute="SuppRefno"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="LcRef"
+        ViewAttribute="LcRef"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PuSuppliersView"
+        ViewAttribute="PuSuppliersView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="PuSuppliersViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="PuSuppliersViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Supplierid"
+              ViewAttribute="Supplierid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SuppName"
+              ViewAttribute="SuppName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="PuPoLinesVO"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC00123039Link"
@@ -478,4 +583,8 @@
         Type="void"/>
     </Method>
   </ClientInterface>
+  <SortCriteria>
+    <Sort
+      Attribute="Poid"/>
+  </SortCriteria>
 </ViewObject>

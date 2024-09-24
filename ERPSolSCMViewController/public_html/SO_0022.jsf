@@ -48,8 +48,9 @@
                                    disabled="#{!bindings.doSupervisePurchaseOrder.enabled}" id="b10" rendered="false"/>
                         <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
                                    action="ACT-ERP-CLOSE-FORM-SCM" iconPosition="top"/>
-                        <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"
-                                   icon="#{resource['images:imgFind.png']}" iconPosition="top" accessKey="s"/>
+                        <af:button text="Search" id="b12"
+                                   icon="#{resource['images:imgFind.png']}" iconPosition="top" accessKey="s"
+                                   action="ACT-ERP-SO-0022-SEARCH"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{bindings.Poid.inputValue==null || !bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top" accessKey="r"/>

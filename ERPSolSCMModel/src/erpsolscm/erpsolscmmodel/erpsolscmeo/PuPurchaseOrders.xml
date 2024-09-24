@@ -50,6 +50,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.Locationid_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -69,6 +71,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.Supplierid_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -225,6 +229,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.SuppRefno_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -239,6 +245,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.SuppRefDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -466,6 +474,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.PuPurchaseOrders.LcRef_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

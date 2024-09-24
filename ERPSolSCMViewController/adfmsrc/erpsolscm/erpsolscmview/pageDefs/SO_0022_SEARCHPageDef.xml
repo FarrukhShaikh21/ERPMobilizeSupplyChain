@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0022_SEARCHPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PuPurchaseOrdersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="PuPurchaseOrdersCRUDIterator"/>
+    <searchRegion Criteria="PuPurchaseOrdersVOCriteriaVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="PuPurchaseOrdersCRUDIterator"
+                  id="PuPurchaseOrdersVOCriteriaVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PuPurchaseOrdersCRUDIterator" id="PuPurchaseOrdersCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuPurchaseOrdersVO" Name="PuPurchaseOrdersCRUD0">
+        <AttrNames>
+          <Item Value="Poid"/>
+          <Item Value="PoDate"/>
+          <Item Value="Locationid"/>
+          <Item Value="Supplierid"/>
+          <Item Value="ReceStoreid"/>
+          <Item Value="Potype"/>
+          <Item Value="SuppRefno"/>
+          <Item Value="SuppRefDate"/>
+          <Item Value="Posted"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="txtStoreName"/>
+          <Item Value="txtSupplierName"/>
+          <Item Value="txtSumQuantity"/>
+          <Item Value="txtSumNetmount"/>
+          <Item Value="txtSumGrossAmount"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0022_SEARCH.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="Purchase Order Search" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.PuPurchaseOrdersVOCriteriaVCQuery.queryDescriptor}"
+                                  model="#{bindings.PuPurchaseOrdersVOCriteriaVCQuery.queryModel}"
+                                  queryListener="#{bindings.PuPurchaseOrdersVOCriteriaVCQuery.processQuery}"
+                                  queryOperationListener="#{bindings.PuPurchaseOrdersVOCriteriaVCQuery.processQueryOperation}"
+                                  resultComponentId="::resId1" rows="2" maxColumns="2" saveQueryMode="hidden"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button text="Goto Purchase Order" id="b1" action="ACT-ERP-SO-0022-SEARCH-BACK"/>
+                            </af:toolbar>
+                        </f:facet>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.PuPurchaseOrdersCRUD.collectionModel}" var="row"
+                              rows="#{bindings.PuPurchaseOrdersCRUD.rangeSize}"
+                              emptyText="#{bindings.PuPurchaseOrdersCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PuPurchaseOrdersCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PuPurchaseOrdersCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PuPurchaseOrdersCRUD.rangeSize}" id="resId1">
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Poid.label}" id="c1">
+                            <af:outputText value="#{row.Poid}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Poid.tooltip}" id="ot13"
+                                           rendered="false"/>
+                            <af:link text="#{row.Poid}" id="l1" action="ACT-ERP-SO-0022-SEARCH-BACK"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.PoDate.label}" id="c2">
+                            <af:outputText value="#{row.PoDate}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.PoDate.tooltip}" id="ot14">
+                                <af:convertDateTime pattern="#{bindings.PuPurchaseOrdersCRUD.hints.PoDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Locationid.label}" id="c3">
+                            <af:outputText value="#{row.Locationid}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Locationid.tooltip}"
+                                           id="ot15"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Supplierid.label}" id="c4">
+                            <af:outputText value="#{row.Supplierid}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Supplierid.tooltip}"
+                                           id="ot16"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.ReceStoreid.label}" id="c5">
+                            <af:outputText value="#{row.ReceStoreid}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.ReceStoreid.tooltip}"
+                                           id="ot17"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Potype.label}" id="c6"
+                                   rendered="false">
+                            <af:outputText value="#{row.Potype}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Potype.tooltip}" id="ot18"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.SuppRefno.label}" id="c7">
+                            <af:outputText value="#{row.SuppRefno}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.SuppRefno.tooltip}"
+                                           id="ot19"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.SuppRefDate.label}" id="c8">
+                            <af:outputText value="#{row.SuppRefDate}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.SuppRefDate.tooltip}"
+                                           id="ot20">
+                                <af:convertDateTime pattern="#{bindings.PuPurchaseOrdersCRUD.hints.SuppRefDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Posted.label}" id="c9">
+                            <af:outputText value="#{row.Posted}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Posted.tooltip}" id="ot21"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtLocationName.label}" id="c10">
+                            <af:outputText value="#{row.txtLocationName}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtLocationName.tooltip}"
+                                           id="ot22"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtStoreName.label}" id="c11">
+                            <af:outputText value="#{row.txtStoreName}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtStoreName.tooltip}"
+                                           id="ot23"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtSupplierName.label}" id="c12"
+                                   rendered="false">
+                            <af:outputText value="#{row.txtSupplierName}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtSupplierName.tooltip}"
+                                           id="ot24"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumQuantity.label}" id="c13"
+                                   rendered="false">
+                            <af:outputText value="#{row.txtSumQuantity}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumQuantity.tooltip}"
+                                           id="ot25">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumQuantity.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumNetmount.label}"
+                                   id="resId1c14">
+                            <af:outputText value="#{row.txtSumNetmount}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumNetmount.tooltip}"
+                                           id="ot26">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumNetmount.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumGrossAmount.label}"
+                                   id="resId1c15" rendered="false">
+                            <af:outputText value="#{row.txtSumGrossAmount}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumGrossAmount.tooltip}"
+                                           id="ot27">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.PuPurchaseOrdersCRUD.hints.txtSumGrossAmount.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.PuPurchaseOrdersCRUD.hints.Remarks.label}" id="resId1c16">
+                            <af:outputText value="#{row.Remarks}"
+                                           shortDesc="#{bindings.PuPurchaseOrdersCRUD.hints.Remarks.tooltip}"
+                                           id="ot28"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>
