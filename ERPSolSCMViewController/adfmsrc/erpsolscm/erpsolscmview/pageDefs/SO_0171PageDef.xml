@@ -99,6 +99,7 @@
           <Item Value="Itemid"/>
           <Item Value="GenerateSo"/>
           <Item Value="ManualRate"/>
+          <Item Value="AddDiscount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -351,6 +351,18 @@
                                           pattern="#{bindings.SoRebateDetailCRUD.hints.Discount.format}"/>
                       </af:inputText>
                     </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.label}" id="c11">
+                      <af:inputText value="#{row.bindings.AddDiscount.inputValue}"
+                                    label="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.label}"
+                                    required="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.mandatory}"
+                                    columns="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.displayWidth}"
+                                    maximumLength="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.precision}"
+                                    shortDesc="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.tooltip}" id="it16">
+                        <f:validator binding="#{row.bindings.AddDiscount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoRebateDetailCRUD.hints.AddDiscount.format}"/>
+                      </af:inputText>
+                    </af:column>
                     <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.RebateQty.label}" id="c3">
                       <af:inputText value="#{row.bindings.RebateQty.inputValue}"
                                     label="#{bindings.SoRebateDetailCRUD.hints.RebateQty.label}"
