@@ -313,8 +313,10 @@
                                                       model="#{row.bindings.txtModelNo.listOfValuesModel}"
                                                       required="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtModelNo.mandatory}"
                                                       columns="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtModelNo.displayWidth}"
-                                                      shortDesc="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtModelNo.tooltip}">
+                                                      shortDesc="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtModelNo.tooltip}"
+                                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtProductId.label}" id="c3">
@@ -324,7 +326,7 @@
                                       columns="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtProductId.displayWidth}"
                                       maximumLength="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtProductId.precision}"
                                       shortDesc="#{bindings.PuPurchaseReturnLinesDetCRUD.hints.txtProductId.tooltip}"
-                                      id="it2" readOnly="true">
+                                      id="it2" readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.txtProductId.validator}"/>
                         </af:inputText>
                       </af:column>
