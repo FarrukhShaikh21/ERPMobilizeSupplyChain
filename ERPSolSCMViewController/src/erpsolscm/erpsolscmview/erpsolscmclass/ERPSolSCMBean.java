@@ -780,6 +780,47 @@ public class ERPSolSCMBean {
         return null;
     }
 
+    public String doERPSolExecutePRInvoice() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOPRInvoice");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOPRInvoice", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOPRInvoice", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"PR_INVOICE";
+        vo.executeQuery();    
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPPRId       =(AttributeBinding)ERPSolbc.getControlBinding("PrId");
+        //System.out.println("select ISSUENO  FROM IN_ISSUED_ITEMS a where a.Issuedoctypeid='SO' and a.Source_Doc_Ref='"+ERPSalesorderid.getInputValue()+"'");
+        vo.remove();
+        
+        String reportParameter="";
+        reportParameter+="P_PR_NO="+ERPPRId.getInputValue()==null?"":ERPPRId.getInputValue();
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
     public String doERPSolExecuteDeliveryOrder() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
 //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");

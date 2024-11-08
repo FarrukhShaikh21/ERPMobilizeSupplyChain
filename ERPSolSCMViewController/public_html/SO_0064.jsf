@@ -195,21 +195,21 @@
                           <af:panelGroupLayout id="pgl8" halign="end" layout="horizontal">
                             <af:button text="Warehouse" id="b18"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteWarehouse}"
-                                       disabled="#{bindings.PrId.inputValue==null}">
+                                       disabled="#{bindings.PrId.inputValue==null}" rendered="false">
                             <af:setActionListener from="#{'SoSalesOrderViewCRUDIterator'}"
                                                     to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>   
                              </af:button>          
                             <af:button text="Delivery Order" id="b17"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteDeliveryOrder}"
-                                       disabled="#{bindings.Posted.inputValue=='N'}">
+                                       disabled="#{bindings.Posted.inputValue=='N'}" rendered="false">
                                  <af:setActionListener from="#{'SoSalesOrderViewCRUDIterator'}"
                                                     to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>   
                                   
                             </af:button>          
-                            <af:button text="Sales Invoice" id="b16"
-                                       action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSalesInvoice}"
+                            <af:button text="PR Invoice" id="b16"
+                                       action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecutePRInvoice}"
                                        disabled="#{bindings.Posted.inputValue=='N'}">
-                                <af:setActionListener from="#{'SoSalesOrderViewCRUDIterator'}"
+                                <af:setActionListener from="#{'PuPurchaseReturnCRUDIterator'}"
                                                     to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>   
                                    
                              </af:button>          
