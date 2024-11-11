@@ -54,11 +54,11 @@
                                         </af:button>
                                         <af:button actionListener="#{bindings.doERPSolRemoveSaleReturnBox.execute}"
                                                    text="Delete Selected Box"
-                                                   disabled="#{!bindings.doERPSolRemoveSaleReturnBox.enabled}" id="b6"
+                                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b6"
                                                    icon="#{resource['images:imgDelete.png']}"/>
                                         <af:button actionListener="#{bindings.Delete.execute}"
                                                    text="Delete Selected IMEI"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b2"
+                                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                                    icon="#{resource['images:imgDelete.png']}"/>
                                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="b5"
                                                    icon="#{resource['images:imgUndo.png']}"
@@ -108,6 +108,13 @@
                                                        id="ot3"/>
                                     </af:column>
                                 </af:table>
+                                <f:facet name="afterToolbar">
+                                    <af:toolbar id="t4">
+                                        <af:outputText value="Total IMEI Entered: #{bindings.SrimeiViewBySrdetlinesseqCRUDIterator.estimatedRowCount}" id="ot4"
+                                                       inlineStyle="font-weight:bold"
+                                                       partialTriggers="::it2 ::it1 b1 b6 b2 b5 b4"/>
+                                    </af:toolbar>
+                                </f:facet>
                             </af:panelCollection>
                         </af:gridCell>
                     </af:gridRow>
