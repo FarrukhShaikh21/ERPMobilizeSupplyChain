@@ -87,6 +87,10 @@ public class ERPSolSCMBean {
      private String filecontents;
      private String filetype;
     private UploadedFile ERPuploadedFile;
+    private UploadedFile ERPPRuploadedFile;
+    private String prfilename;
+    private long prfilesize;
+
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -1401,7 +1405,6 @@ public class ERPSolSCMBean {
             return ;
         }
     
-
         DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
         DCDataControl dc = bc.getDataControl();
         String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_PR_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','B','"+getERPSolProductId()+"'); end;";
@@ -1428,17 +1431,6 @@ public class ERPSolSCMBean {
                     } catch (SQLException e) {
                     }
                 }
-    //        setERPSolImeiBox(null);
-    //        getERPSolImeiBoxText().setValue(null);
-    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
-        
-
-    //        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
-    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
-    //        ViewObject ERPSolvo=ib.getViewObject();
-    //        Row ERPsolrow=ERPSolvo.createRow();
-    //        ERPsolrow.setAttribute("ImeiNo", message);
-    //        ERPSolvo.insertRow(ERPsolrow);
     }
 
 
@@ -1452,6 +1444,23 @@ public class ERPSolSCMBean {
                 } catch (IOException e) {
                     // TODO
                 }
+    }
+
+
+    public void setERPPRuploadedFile(UploadedFile ERPPRuploadedFile) {
+//        this.ERPPRuploadedFile = ERPPRuploadedFile;
+        this.filename = ERPPRuploadedFile.getFilename();
+                this.filesize = ERPPRuploadedFile.getLength();
+                this.filetype = ERPPRuploadedFile.getContentType();
+                try {
+                    parsePRFile(ERPPRuploadedFile.getInputStream());
+                } catch (IOException e) {
+                    // TODO
+                }        
+    }
+
+    public UploadedFile getERPPRuploadedFile() {
+        return ERPPRuploadedFile;
     }
 
     public UploadedFile getERPuploadedFile() {
@@ -1539,4 +1548,121 @@ public class ERPSolSCMBean {
     vo.getApplicationModule().getTransaction().commit();
     }
 
+    public void parsePRFile(java.io.InputStream file) {
+
+    BufferedReader reader = new BufferedReader(new InputStreamReader(file));
+
+    String strLine = "";
+
+    StringTokenizer st = null;
+
+    int lineNumber = 0, tokenNumber = 0;
+
+    Row rw = null;
+    DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+    DCIteratorBinding ib =(DCIteratorBinding) bc.get("PuPurchaseReturnImeiDetCRUDIterator");
+    DCDataControl dc = bc.getDataControl();
+
+    ViewObject vo=ib.getViewObject();
+
+        //read comma separated file line by line
+
+    try
+
+    {
+
+    while ((strLine = reader.readLine()) != null)
+
+    {
+
+    lineNumber++;
+  
+    //break comma separated line using ","
+
+    st = new StringTokenizer(strLine, ",");
+
+    while (st.hasMoreTokens())
+
+    {
+
+    //display csv values
+
+    tokenNumber++;
+
+    String theToken = st.nextToken();
+
+    System.out.println("Line # " + lineNumber + ", Token # " +tokenNumber +", Token : " + theToken);
+
+    if (lineNumber>1 || 1==1){
+    // set Attribute Values
+   /* switch (tokenNumber) {
+    case 1: rw.setAttribute("BoxNo",theToken);
+    case 2: rw.setAttribute("Imei",theToken);
+    }
+    */
+        if(tokenNumber==2){
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_PR_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+theToken+"','I','"+getERPSolProductId()+"'); end;";
+   DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+   CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+   System.out.println(ERPSolPlsql);
+   System.out.println("ABC");
+   try {
+                System.out.println("ABC-78");
+                cs.registerOutParameter(1, Types.VARCHAR);
+                System.out.println("ABC-90");
+                cs.executeUpdate();
+                ERPSolPlsql=cs.getString(1);
+                System.out.println("ABC-95");
+
+                if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                {  
+                erpsoldbt.commit();
+                dc.getApplicationModule().findViewObject("PuPurchaseReturnImeiDetCRUD").executeQuery();
+                }
+                else {
+                    FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            finally{
+               try {
+                   cs.close();
+               } catch (SQLException e) {
+               }
+           }
+   //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    }
+    }
+
+    }
+    //reset token number
+    tokenNumber = 0;
+       
+   
+
+    }
+
+    }
+
+    catch (IOException e) {
+
+    // TODO add more
+
+    
+    }
+
+    catch (Exception e) {
+
+    FacesContext fctx = FacesContext.getCurrentInstance();
+
+    fctx.addMessage( null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+
+    "Data Error in Uploaded file", e.getMessage()));
+
+    }
+    vo.getApplicationModule().getTransaction().commit();
+    }
 }

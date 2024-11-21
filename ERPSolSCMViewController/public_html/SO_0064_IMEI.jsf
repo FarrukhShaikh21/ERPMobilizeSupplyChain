@@ -3,8 +3,8 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="SO_0064_IMEI.jsf" id="d1">
     <af:messages id="m1"/>
-    <af:form id="f1">
-      <af:panelHeader text="Scan Sales OrderIMEI/BOX (#{bindings.PrId.inputValue} (#{bindings.txtModelNo.inputValue})) " id="ph1">
+    <af:form id="f1" usesUpload="true">
+      <af:panelHeader text="Scan Purchase Return IMEI/BOX (#{bindings.PrId.inputValue} (#{bindings.txtModelNo.inputValue})) " id="ph1">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
@@ -60,6 +60,9 @@
                                                method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventPRIMEI}"/>
                   <af:convertNumber groupingUsed="false"/>
                 </af:inputText>
+            <af:inputFile label="Upload File" id="if1" value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPPRuploadedFile}" autoSubmit="true"
+                disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}"/>                
+                              
               </af:panelGroupLayout>
             </af:gridCell>
           </af:gridRow>
