@@ -813,11 +813,12 @@ public class ERPSolSCMBean {
         vo.remove();
         
         String reportParameter="";
-        reportParameter+="P_PR_NO="+ERPPRId.getInputValue()==null?"":ERPPRId.getInputValue();
+        reportParameter+="P_PR_NO="+(ERPPRId.getInputValue()==null?"":ERPPRId.getInputValue());
         reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
         pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
         pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
         
+        System.out.println(ERPPRId.getInputValue()+ "pridgetvalue");
         System.out.println(pReportPath);
         System.out.println(reportParameter);
         System.out.println(pReportUrl);

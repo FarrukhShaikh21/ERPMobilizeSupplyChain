@@ -207,8 +207,7 @@
                                   
                             </af:button>          
                             <af:button text="PR Invoice" id="b16"
-                                       action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecutePRInvoice}"
-                                       disabled="#{bindings.Posted.inputValue=='N'}">
+                                       action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecutePRInvoice}">
                                 <af:setActionListener from="#{'PuPurchaseReturnCRUDIterator'}"
                                                     to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>   
                                    
